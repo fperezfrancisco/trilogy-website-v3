@@ -1,5 +1,5 @@
 import React from "react";
-//import trilogyImg from "../../assets/trilogy-transparent.png";
+import trilogyImg from "../../../public/logos/trilogy-transparent.png";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
@@ -15,8 +15,8 @@ function Footer() {
     <footer className="w-full mt-[6rem] md:mt-[12rem] p-8 py-14 md:p-8 md:py-[6rem] bg-black text-white flex flex-col">
       <div className="flex flex-col lg:flex-row max-w-[2400px] mx-auto gap-8 lg:gap-[6rem] items-center">
         <div className="flex flex-col gap-4 items-center">
-          {false && (
-            <img src={trilogyImg} className="w-full max-w-[350px]" alt="" />
+          {true && (
+            <img src={trilogyImg} className="w-full max-w-[300px]" alt="" />
           )}
           <div className="flex flex-wrap w-fit gap-2">
             <div className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out">

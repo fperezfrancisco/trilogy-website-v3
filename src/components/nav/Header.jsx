@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import trilogyLogo from "../../assets/trilogy-t-logo.png";
+import trilogyLogo from "../../../public/logos/trilogy-t-logo.png";
 import { Link } from "react-router-dom";
 import NavList from "./NavList";
 import { HiMenu } from "react-icons/hi";
@@ -23,7 +23,7 @@ function Header() {
       <span className="h-full flex items-center">
         <Link to="/">
           <img
-            src=""
+            src={trilogyLogo}
             width={36}
             className="hover:scale-110 transition-all ease-out duration-150 cursor-pointer"
           />
