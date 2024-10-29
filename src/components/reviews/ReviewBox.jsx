@@ -23,7 +23,7 @@ function ReviewBox({ stars, author, text, playerInfo, location }) {
   }, [stars]);
 
   return (
-    <div className="w-full max-w-[300px] h-max-content p-4 py-6 rounded-2xl shadow-md flex flex-col border-neutral-100 border-2">
+    <div className="h-[400px] md:h-[300px] p-4 py-6 rounded-2xl flex flex-col w-full min-w-[100px] sm:min-w-[300px] lg:min-w-[400px] border-neutral-100 border-2">
       <div className="flex flex-col items-start justify-start mb-2">
         <p className="text-[0.75rem] font-semibold sm:text-[0.85rem] leading-tight">
           {author}

@@ -1,6 +1,7 @@
 import React from "react";
 import ReviewBox from "../reviews/ReviewBox";
 import reviewImg from "../../assets/trilogy-reviews-min.webp";
+import Carousel from "../carousel/Carousel";
 
 function HomeReviewSection() {
   const reviewsList = [
@@ -61,16 +62,8 @@ function HomeReviewSection() {
         <p className="my-3 text-sm sm:text-[1rem] text-center lg:text-left text-neutral-500">
           Let's show you what people have said about us!
         </p>
-        <div className="py-3 flex flex-wrap justify-center  w-full gap-3">
-          {reviewsList &&
-            reviewsList.map((review) => (
-              <ReviewBox
-                stars={review.stars}
-                author={review.author}
-                text={review.text}
-                playerInfo={review.playerInfo}
-              />
-            ))}
+        <div className="py-3 flex flex-wrap justify-center w-full">
+          <Carousel slideList={reviewsList} />
         </div>
       </div>
     </div>
