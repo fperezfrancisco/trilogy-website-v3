@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewBox from "../reviews/ReviewBox";
-import reviewImg from "../../assets/trilogy-reviews-min.png";
+import reviewImg from "../../assets/trilogy-reviews-min.webp";
 
 function HomeReviewSection() {
   const reviewsList = [

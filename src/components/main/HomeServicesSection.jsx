@@ -1,6 +1,8 @@
 import React from "react";
 import ServicesBoxSquare from "./ServicesBoxSquare";
-//import privateImg from "../../assets/coaSquare.jpg";
+import privateImg from "../../assets/coaSquare.webp";
+import openGroupImg from "../../assets/trilogy-poles-square.webp";
+import smallGroupImg from "../../assets/small-trilogy.webp";
 
 function HomeServicesSection() {
   return (
@@ -12,13 +14,19 @@ function HomeServicesSection() {
         <ServicesBoxSquare
           title="Open Group Training"
           buttonTitle={"Register now"}
+          img={openGroupImg}
         />
         <ServicesBoxSquare
           title="Private Mentorship"
           buttonTitle={"Apply now"}
           imgLink={"/training#program2"}
+          img={privateImg}
         />
-        <ServicesBoxSquare title="Small Privates" buttonTitle={"Book now"} />
+        <ServicesBoxSquare
+          title="Small Privates"
+          buttonTitle={"Book now"}
+          img={smallGroupImg}
+        />
       </div>
     </div>
   );
