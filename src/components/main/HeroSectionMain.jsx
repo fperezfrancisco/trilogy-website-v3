@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Button from "../buttons/Button";
 import SkeletonBox from "../skeleton/SkeletonBox";
+import heroArtBanner from "../../assets/hero-art-banner-2-min.png";
 //import heroImgOne from "../../assets/hero-img-1.png";
 //import heroImgOnePortrait from "../../assets/hero-img-1-portrait.png";
 //import heroBlue from "../../assets/hero-banners/blue-skills.png";
@@ -14,27 +15,39 @@ function HeroSectionMain() {
   const [loadState, setLoadState] = useState(false);
   return (
     <section className="w-full p-4 pb-12 sm:pb-[12rem] md:p-8 md:pt-2 md:pb-[14rem] relative">
-      <div className="bg-neutral-300 flex rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto overflow-hidden">
-        {false && (
+      <div className="  flex rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto overflow-hidden">
+        {true && (
           <>
+            {false && (
+              <>
+                <img
+                  src={heroSkills}
+                  className="object-cover object-center w-full hidden lg:block"
+                  alt=""
+                />
+                <img
+                  src={heroSkillsMedium}
+                  className="object-cover w-full hidden sm:block lg:hidden"
+                />
+                <img
+                  src={heroSkillsSmall}
+                  className="object-cover w-full hidden min-[425px]:block sm:hidden"
+                />
+                <img
+                  src={heroSkillsSquare}
+                  className="object-cover w-full block min-[425px]:hidden"
+                />
+              </>
+            )}
             <img
-              src={heroSkills}
-              className="object-cover object-center w-full hidden lg:block"
+              src={heroArtBanner}
+              className="object-cover object-center w-full hidden md:block"
               alt=""
             />
-            <img
-              src={heroSkillsMedium}
-              className="object-cover w-full hidden sm:block lg:hidden"
-            />
-            <img
-              src={heroSkillsSmall}
-              className="object-cover w-full hidden min-[425px]:block sm:hidden"
-            />
-            <img
-              src={heroSkillsSquare}
-              className="object-cover w-full block min-[425px]:hidden"
-            />
           </>
+        )}
+        {false && (
+          <div className="w-full h-full bg-neutral-300 animate-pulse"></div>
         )}
       </div>
       <div className="sm:absolute flex flex-col items-center sm:items-start gap-2 lg:gap-4 justify-center mx-auto right-0 sm:right-auto sm:justify-start bg-white rounded-t-2xl p-6 sm:rounded-tl-none sm:rounded-tr-2xl sm:p-6 sm:pl-4 md:pl-11 w-fit sm:w-full sm:max-w-[400px] md:max-w-[450px] lg:max-w-[600px] xl:max-w-[650px] bottom-[1rem] md:bottom-0 left-3">
