@@ -5,6 +5,8 @@ import CtaSection from "../components/cta/CtaSection";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import ProgramSection from "../components/training/ProgramSection";
 import trainingImg from "../assets/trainingImg-min.webp";
+import trainingMedium from "../assets/training-medium.webp";
+import trainingSquare from "../assets/training-square.webp";
 import { useLocation } from "react-router-dom";
 
 function TrainingPage() {
@@ -26,6 +28,8 @@ function TrainingPage() {
           mainTitle={"All the training you need to stay"}
           specialTitleText={"Ahead"}
           heroImg={trainingImg}
+          heroImgMedium={trainingMedium}
+          heroSquare={trainingSquare}
         />
         <ProgramSection />
         <CtaSection />

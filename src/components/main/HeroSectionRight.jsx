@@ -20,15 +20,11 @@ function HeroSectionRight({
           <>
             <img
               src={heroImg}
-              className="object-cover w-full object-center hidden lg:block"
+              className="object-cover w-full object-center hidden min-[900px]:block"
             />
             <img
               src={heroImgMedium}
-              className="object-cover w-full hidden sm:block lg:hidden"
-            />
-            <img
-              src={heroImgSmall}
-              className="object-cover w-full hidden min-[425px]:block sm:hidden"
+              className="object-cover w-full hidden min-[425px]:block min-[900px]:hidden"
             />
             <img
               src={heroSquare}
