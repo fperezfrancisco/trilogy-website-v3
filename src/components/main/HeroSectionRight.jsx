@@ -16,7 +16,7 @@ function HeroSectionRight({
   return (
     <section className="w-full p-4 pb-12 sm:pb-16 md:p-8 md:pt-2 md:pb-16 relative">
       <div className="bg-neutral-300 flex overflow-hidden rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto">
-        {false && (
+        {true && (
           <>
             <img
               src={heroImg}

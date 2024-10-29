@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer";
 import CtaSection from "../components/cta/CtaSection";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import ProgramSection from "../components/training/ProgramSection";
-//import trainingImg from "../assets/trainingImg.png";
+import trainingImg from "../assets/trainingImg-min.png";
 
 function TrainingPage() {
   return (
@@ -14,6 +14,7 @@ function TrainingPage() {
         <HeroSectionRight
           mainTitle={"All the training you need to stay"}
           specialTitleText={"Ahead"}
+          heroImg={trainingImg}
         />
         <ProgramSection />
         <CtaSection />
