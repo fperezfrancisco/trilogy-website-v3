@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "../buttons/Button";
-//import jackImg from "../../assets/jack-trilogy.png";
+import jackImg from "../../assets/jack-trilogy.webp";
 
 function AboutPurposeSection() {
   return (
     <div className="w-full py-[6rem] md:py-[10rem] lg:py-[14rem] px-4 md:px-8 flex flex-col items-center lg:flex-row-reverse lg:items-start justify-center gap-12">
       <div className="aspect-[4/5] w-full max-w-[450px] flex rounded-2xl overflow-hidden">
-        {false && <img src={jackImg} className="w-full object-cover" alt="" />}
+        {true && <img src={jackImg} className="w-full object-cover" alt="" />}
       </div>
       <div className="sectionCopy w-full max-w-[650px] flex flex-col items-center lg:items-start">
         <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">

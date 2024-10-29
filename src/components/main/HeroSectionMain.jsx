@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Button from "../buttons/Button";
 import SkeletonBox from "../skeleton/SkeletonBox";
-import heroArtBanner from "../../assets/hero-art-banner-2-min.png";
+import heroArtBanner from "../../assets/hero-art-banner.webp";
 //import heroImgOne from "../../assets/hero-img-1.png";
 //import heroImgOnePortrait from "../../assets/hero-img-1-portrait.png";
 //import heroBlue from "../../assets/hero-banners/blue-skills.png";
