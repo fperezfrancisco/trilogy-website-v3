@@ -4,7 +4,7 @@ import CtaSection from "../components/cta/CtaSection";
 import Header from "../components/nav/Header";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import AboutPurposeSection from "../components/main/AboutPurposeSection";
-//import aboutImg from "../assets/aboutImg.png";
+import aboutImg from "../assets/aboutImg.png";
 //import aboutImgMedium from "../assets/aboutImg-Medium.png";
 //import aboutImgSmall from "../assets/aboutImg-Small.png";
 //import aboutImgSquare from "../assets/aboutImg-square.png";
@@ -17,6 +17,7 @@ function AboutPage() {
         <HeroSectionRight
           mainTitle={"A stepping stone for"}
           specialTitleText={"Greatness"}
+          heroImg={aboutImg}
         />
         <AboutPurposeSection />
         <CtaSection />
