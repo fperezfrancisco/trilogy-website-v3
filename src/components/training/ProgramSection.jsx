@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProgramBox from "./ProgramBox";
+import { useLocation } from "react-router-dom";
 //import mentorshipImg from "../../assets/coa-speed-2.jpg";
 
 function ProgramSection() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location.hash]);
   const programList = [
     {
       id: 1,

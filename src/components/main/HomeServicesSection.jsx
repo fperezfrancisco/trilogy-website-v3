@@ -15,6 +15,7 @@ function HomeServicesSection() {
           title="Open Group Training"
           buttonTitle={"Register now"}
           img={openGroupImg}
+          imgLink={"/training#program1"}
         />
         <ServicesBoxSquare
           title="Private Mentorship"
@@ -26,6 +27,7 @@ function HomeServicesSection() {
           title="Small Privates"
           buttonTitle={"Book now"}
           img={smallGroupImg}
+          imgLink={"/training#program3"}
         />
       </div>
     </div>

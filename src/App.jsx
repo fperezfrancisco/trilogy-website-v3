@@ -5,10 +5,12 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter basename="">
+      <ScrollToTop />
       <Routes>
         <Route path="/" index element={<Home />} />
         <Route path="/training" element={<TrainingPage />} />
