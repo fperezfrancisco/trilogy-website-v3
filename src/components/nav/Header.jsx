@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import trilogyLogo from "../../../public/logos/trilogy-t-logo.png";
+import trilogyLogo from "../../assets/logos/trilogy-t-logo.png";
 import { Link } from "react-router-dom";
 import NavList from "./NavList";
 import { HiMenu } from "react-icons/hi";
