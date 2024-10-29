@@ -16,7 +16,7 @@ function HeroSectionRight({
   return (
     <section className="w-full p-4 pb-12 sm:pb-16 md:p-8 md:pt-2 md:pb-16 relative">
       <div className="bg-neutral-300 flex overflow-hidden rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto">
-        {true && (
+        {heroSquare && heroImgMedium && (
           <>
             <img
               src={heroImg}
@@ -31,6 +31,21 @@ function HeroSectionRight({
               className="object-cover w-full block min-[425px]:hidden"
             />
           </>
+        )}
+        {!heroSquare && heroImgMedium && (
+          <>
+            <img
+              src={heroImg}
+              className="object-cover w-full object-center hidden min-[900px]:block"
+            />
+            <img
+              src={heroImgMedium}
+              className="object-cover w-full hidden min-[425px]:block min-[900px]:hidden"
+            />
+          </>
+        )}
+        {!heroSquare && !heroImgMedium && (
+          <img src={heroImg} className="object-cover w-full object-center" />
         )}
       </div>
       <div className="sm:absolute flex flex-col items-center sm:items-start gap-2 lg:gap-4 justify-center mx-auto right-0 sm:right-3 sm:left-auto sm:justify-start bg-white rounded-t-2xl p-6 sm:rounded-tl-2xl sm:rounded-tr-none sm:p-6 sm:pl-4 md:pl-11 w-fit sm:w-full sm:max-w-[400px] md:max-w-[450px] lg:max-w-[600px] xl:max-w-[650px] bottom-[1rem] md:bottom-0">

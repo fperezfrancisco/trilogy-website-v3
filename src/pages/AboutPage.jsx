@@ -5,6 +5,8 @@ import Header from "../components/nav/Header";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import AboutPurposeSection from "../components/main/AboutPurposeSection";
 import aboutImg from "../assets/aboutImg-min.webp";
+import aboutMedium from "../assets/about-medium.webp";
+import aboutSquare from "../assets/about-square.webp";
 //import aboutImgMedium from "../assets/aboutImg-Medium.png";
 //import aboutImgSmall from "../assets/aboutImg-Small.png";
 //import aboutImgSquare from "../assets/aboutImg-square.png";
@@ -18,6 +20,8 @@ function AboutPage() {
           mainTitle={"A stepping stone for"}
           specialTitleText={"Greatness"}
           heroImg={aboutImg}
+          heroImgMedium={aboutMedium}
+          heroSquare={aboutSquare}
         />
         <AboutPurposeSection />
         <CtaSection />
