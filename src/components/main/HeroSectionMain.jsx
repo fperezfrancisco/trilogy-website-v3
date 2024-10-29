@@ -3,13 +3,8 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 import Button from "../buttons/Button";
 import SkeletonBox from "../skeleton/SkeletonBox";
 import heroArtBanner from "../../assets/hero-art-banner.webp";
-//import heroImgOne from "../../assets/hero-img-1.png";
-//import heroImgOnePortrait from "../../assets/hero-img-1-portrait.png";
-//import heroBlue from "../../assets/hero-banners/blue-skills.png";
-//import heroSkills from "../../assets/hero-banners/skills.png";
-//import heroSkillsMedium from "../../assets/hero-banners/skills-medium.png";
-//import heroSkillsSmall from "../../assets/hero-banners/skills-small.png";
-//import heroSkillsSquare from "../../assets/hero-banners/skills-square.png";
+import heroArtMedium from "../../assets/hero-art-medium.webp";
+import heroArtSquare from "../../assets/hero-art-square.webp";
 
 function HeroSectionMain() {
   const [loadState, setLoadState] = useState(false);
@@ -18,32 +13,24 @@ function HeroSectionMain() {
       <div className="  flex rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto overflow-hidden">
         {true && (
           <>
-            {false && (
+            {true && (
               <>
                 <img
-                  src={heroSkills}
-                  className="object-cover object-center w-full hidden lg:block"
+                  src={heroArtBanner}
+                  className="object-cover object-center w-full hidden min-[900px]:block"
                   alt=""
                 />
                 <img
-                  src={heroSkillsMedium}
-                  className="object-cover w-full hidden sm:block lg:hidden"
+                  src={heroArtMedium}
+                  className="object-cover w-full hidden min-[425px]:block min-[900px]:hidden"
                 />
+
                 <img
-                  src={heroSkillsSmall}
-                  className="object-cover w-full hidden min-[425px]:block sm:hidden"
-                />
-                <img
-                  src={heroSkillsSquare}
+                  src={heroArtSquare}
                   className="object-cover w-full block min-[425px]:hidden"
                 />
               </>
             )}
-            <img
-              src={heroArtBanner}
-              className="object-cover object-center w-full hidden md:block"
-              alt=""
-            />
           </>
         )}
         {false && (
