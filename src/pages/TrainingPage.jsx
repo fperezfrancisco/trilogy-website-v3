@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer";
 import CtaSection from "../components/cta/CtaSection";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import ProgramSection from "../components/training/ProgramSection";
-import trainingImg from "../assets/trainingImg-min.png";
+import trainingImg from "../assets/trainingImg-min.webp";
 
 function TrainingPage() {
   return (
