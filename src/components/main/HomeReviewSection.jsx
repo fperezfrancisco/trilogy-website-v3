@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewBox from "../reviews/ReviewBox";
-//import reviewImg from "../../assets/trilogy-reviews.png";
+import reviewImg from "../../assets/trilogy-reviews-min.png";
 
 function HomeReviewSection() {
   const reviewsList = [
@@ -52,13 +52,11 @@ function HomeReviewSection() {
   return (
     <div className="w-full py-[6rem] md:py-[10rem] lg:py-[14rem] px-4 md:px-8 flex flex-col items-center lg:flex-row lg:items-start justify-center gap-12">
       <div className="aspect-[4/5] w-full max-w-[450px] flex bg-neutral-300 rounded-2xl overflow-hidden">
-        {false && (
-          <img src={reviewImg} className="object-cover w-full" alt="" />
-        )}
+        {true && <img src={reviewImg} className="object-cover w-full" alt="" />}
       </div>
       <div className="sectionCopy w-full max-w-[650px] flex flex-col items-center lg:items-start">
         <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
-          building and elite community
+          building an elite community
         </h2>
         <p className="my-3 text-sm sm:text-[1rem] text-center lg:text-left text-neutral-500">
           Let's show you what people have said about us!
