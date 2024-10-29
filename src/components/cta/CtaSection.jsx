@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../buttons/Button";
-//import ctaDecoration from "../../assets/cta-decoration.png";
-//import eliteImg from "../../assets/elite-group.png";
+import ctaDecoration from "../../assets/cta-decoration.png";
+import eliteImg from "../../assets/elite-group.png";
 
 function CtaSection() {
   return (
@@ -17,7 +17,7 @@ function CtaSection() {
           </p>
           <Button secondary={true} full={true} title={"Set up my call now"} />
         </div>
-        {false && (
+        {true && (
           <>
             <img
               src={ctaDecoration}
