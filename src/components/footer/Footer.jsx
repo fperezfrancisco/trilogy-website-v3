@@ -1,5 +1,5 @@
 import React from "react";
-import trilogyImg from "/public/logos/trilogy-transparent.png";
+import trilogyImg from "../../assets/logos/trilogy-transparent.png";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
