@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import trilogyImg from "../../assets/logos/trilogy-transparent.png";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
@@ -6,9 +6,30 @@ import { FaYoutube } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
 function Footer() {
-  const handleSubscribe = (e) => {
+  const [emailSubscribe, setEmailSubscribe] = useState();
+
+  const openInNewTab = (path) => {
+    window.open(path, "_blank");
+  };
+
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    alert("Subscribed!");
+    const data = new FormData();
+    data.append("Email", emailSubscribe);
+
+    const subscribeUrl =
+      "https://script.google.com/macros/s/AKfycbzLCV_WDSf9Wv1uLfm7qX_CICNPHx0VgSkgUVcbyVFefMNJ286yiMYsXgDblg2ktC79/exec";
+    try {
+      await fetch(subscribeUrl, {
+        method: "POST",
+        body: data,
+        muteHttpExceptions: true,
+      });
+      alert("Subscribed!");
+    } catch (error) {
+      console.log(error);
+      alert("Oops something went wrong, please try again.");
+    }
   };
 
   return (
@@ -19,16 +40,36 @@ function Footer() {
             <img src={trilogyImg} className="w-full max-w-[300px]" alt="" />
           )}
           <div className="flex flex-wrap w-fit gap-2">
-            <div className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out">
+            <div
+              className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out"
+              onClick={() =>
+                openInNewTab("https://www.instagram.com/trilogysoccer/")
+              }
+            >
               <FaInstagram />
             </div>
-            <div className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out">
+            <div
+              className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out"
+              onClick={() =>
+                openInNewTab("https://www.instagram.com/trilogysoccer/")
+              }
+            >
               <FaTiktok />
             </div>
-            <div className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out">
+            <div
+              className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out"
+              onClick={() =>
+                openInNewTab("https://www.youtube.com/@trilogysoccer")
+              }
+            >
               <FaYoutube />
             </div>
-            <div className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out">
+            <div
+              className="rounded-full w-[48px] h-[48px] flex items-center justify-center text-2xl cursor-pointer hover:bg-blue-500 hover:text-3xl transition-all duration-200 ease-out"
+              onClick={() =>
+                openInNewTab("mailto:trilogysoccertraining@gmail.com")
+              }
+            >
               <SiGmail />
             </div>
           </div>
@@ -45,10 +86,12 @@ function Footer() {
           </p>
           <form action="" className="mt-8" onSubmit={(e) => handleSubscribe(e)}>
             <input
+              name="Email"
               placeholder="Email..."
               type="email"
               className="w-full p-4 rounded-2xl border-2 border-white text-white my-2 bg-black"
               required
+              onChange={(e) => setEmailSubscribe(e.target.value)}
             />
             <button
               type="submit"
