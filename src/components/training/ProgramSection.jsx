@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import ProgramBox from "./ProgramBox";
 import { useLocation } from "react-router-dom";
 //import mentorshipImg from "../../assets/coa-speed-2.jpg";
+import openGroupImg from "../../assets/trilogy-poles-square.webp";
+import privateImg from "../../assets/coaSquare.webp";
+import smallGroup from "../../assets/small-trilogy.webp";
 
 function ProgramSection() {
   const location = useLocation();
@@ -24,6 +27,7 @@ function ProgramSection() {
         "prodigy, club, and elite levels available",
         "limited memberships available",
       ],
+      imgMain: openGroupImg,
       primaryBtn: {
         title: "Register Now",
         type: "secondary",
@@ -44,6 +48,7 @@ function ProgramSection() {
         "Personal Plan & Monthly check-ins",
         "Waiting list available",
       ],
+      imgMain: privateImg,
       primaryBtn: {
         title: "Apply Now",
         type: "secondary",
@@ -59,6 +64,7 @@ function ProgramSection() {
         "Closed groups",
         "Waiting list available",
       ],
+      imgMain: smallGroup,
       primaryBtn: {
         title: "Book Now",
         type: "secondary",
