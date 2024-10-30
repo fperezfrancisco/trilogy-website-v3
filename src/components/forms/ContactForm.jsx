@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../buttons/Button";
 
 function ContactForm() {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    Name: "",
+    Email: "",
+    Message: "",
+  });
+
+  //const postUrl = "https://script.google.com/macros/s/AKfycbztUn5WqvFYREd7CAqxfXi--iQeFjf9sOqb9SAlXsXL33C2Tms6UsAxqJx7xRB3cduNoA/exec"
+
+  const googleUrl =
+    "https://script.google.com/macros/s/AKfycbwkW-6JdOOwYhPSwgAFvlC1Ponh3HZbQst0KKeJbS6IHwfX9nFaQOj1sIKjAlzzl6e1tw/exec";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form submitted!");
+    const data = new FormData();
+    data.append("Name", formData.Name);
+    data.append("Email", formData.Email);
+    data.append("Message", formData.Message);
+
+    const googleUrl =
+      "https://script.google.com/macros/s/AKfycbwkW-6JdOOwYhPSwgAFvlC1Ponh3HZbQst0KKeJbS6IHwfX9nFaQOj1sIKjAlzzl6e1tw/exec";
+
+    try {
+      await fetch(googleUrl, {
+        method: "POST",
+        body: data,
+        muteHttpExceptions: true,
+      });
+      //alert("Form submitted!");
+
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.log(error);
+      alert("Oops something went wrong! Please try again.");
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -22,7 +57,9 @@ function ContactForm() {
             id="contactName"
             className="w-full rounded-xl px-4 py-2 border-[1px] border-neutral-200"
             placeholder="Your name..."
+            onChange={handleChange}
             required
+            name="Name"
           />
         </li>
         <li className="flex flex-col gap-1 items-start">
@@ -34,6 +71,8 @@ function ContactForm() {
             id="contactEmail"
             className="w-full rounded-xl px-4 py-2 border-[1px] border-neutral-200"
             placeholder="Your email..."
+            name="Email"
+            onChange={handleChange}
             required
           />
         </li>
@@ -42,11 +81,13 @@ function ContactForm() {
             Message
           </label>
           <textarea
+            name="Message"
             id="contactMessage"
             className="w-full rounded-xl px-4 py-2 border-[1px] border-neutral-200"
             cols={4}
             rows={6}
             placeholder="How can we help you?"
+            onChange={handleChange}
             required
           />
         </li>

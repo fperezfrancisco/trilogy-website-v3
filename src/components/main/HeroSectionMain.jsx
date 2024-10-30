@@ -8,6 +8,9 @@ import heroArtSquare from "../../assets/hero-art-square.webp";
 
 function HeroSectionMain() {
   const [loadState, setLoadState] = useState(false);
+  const openInNewTab = (path) => {
+    window.open(path, "_blank");
+  };
   return (
     <section className="w-full p-4 pb-12 sm:pb-[12rem] md:p-8 md:pt-2 md:pb-[14rem] relative">
       <div className="  flex rounded-2xl aspect-[4/5] min-[425px]:aspect-video max-h-[600px] w-full mx-auto overflow-hidden">
@@ -59,7 +62,12 @@ function HeroSectionMain() {
         {loadState ? (
           <SkeletonBox height={54} rounded={true} />
         ) : (
-          <Button primary={true} full={true} title="Start Training Now" />
+          <Button
+            primary={true}
+            full={true}
+            title="Start Training Now"
+            action={() => openInNewTab("https://trilogytoei.setmore.com/")}
+          />
         )}
       </div>
       <div className="p-3 w-full max-w-[300px] sm:max-w-[250px] md:w-fit md:flex-wrap xl:flex-row xl:max-w-[550px] md:min-w-[300px] lg:w-full mx-auto flex flex-col gap-2 sm:absolute sm:right-0 sm:bottom-0 xl:left-[680px] xl:right-auto xl:bottom-[9rem]">
