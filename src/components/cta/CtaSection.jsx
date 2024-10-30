@@ -4,6 +4,9 @@ import ctaDecoration from "../../assets/cta-decoration.png";
 import eliteImg from "../../assets/elite-group.png";
 
 function CtaSection() {
+  const openInNewTab = (path) => {
+    window.open(path, "_blank");
+  };
   return (
     <section className="w-full p-4 md:p-8 relative ">
       <div className="ctaBanner overflow-hidden rounded-2xl flex relative w-full h-full lg:min-h-[450px] p-[3rem] bg-gradient-to-b from-[#C8C8C8] to-blue-500 justify-center items-center">
@@ -15,7 +18,16 @@ function CtaSection() {
             Set up a call with us so that we can get you started on the best
             development plan right away.
           </p>
-          <Button secondary={true} full={true} title={"Set up my call now"} />
+          <Button
+            secondary={true}
+            full={true}
+            title={"Set up my call now"}
+            action={() =>
+              openInNewTab(
+                "https://trilogytoei.setmore.com/book?step=time-slot&products=945c4fe7-bef2-4156-b745-b925f27afd16&type=service&staff=QmtZkNxKeaJl9jwqfuLlDFTbaMAFIXUq&staffSelected=true"
+              )
+            }
+          />
         </div>
         {true && (
           <>

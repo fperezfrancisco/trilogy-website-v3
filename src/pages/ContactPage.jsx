@@ -4,6 +4,8 @@ import Footer from "../components/footer/Footer";
 import CtaSection from "../components/cta/CtaSection";
 import HeroSectionMiddle from "../components/main/HeroSectionMiddle";
 import eliteImgLarge from "../assets/elite-group-min.png";
+import eliteMedium from "../assets/elite-group-medium.webp";
+import eliteSquare from "../assets/elite-square.webp";
 import ContactForm from "../components/forms/ContactForm";
 
 function ContactPage() {
@@ -17,6 +19,8 @@ function ContactPage() {
             "For any sort of inquiry, please fill out the form and we will get back to you as soon as possible. Thank you!"
           }
           heroImg={eliteImgLarge}
+          heroImgMedium={eliteMedium}
+          heroImgSmall={eliteSquare}
         />
         <div className="w-full py-6 px-4 md:px-8 flex flex-col">
           <ContactForm />
