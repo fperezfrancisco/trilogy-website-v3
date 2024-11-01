@@ -7,19 +7,26 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import ScrollToTop from "./components/ScrollToTop";
 import AuthenticationIndex from "./pages/AuthenticationIndex";
+import { useState } from "react";
+import { GlobalContext } from "./context/context";
 
 function App() {
+  const [user, setUser] = useState();
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
-    <BrowserRouter basename="">
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" index element={<Home />} />
-        <Route path="/training" element={<TrainingPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/userAuth" element={<AuthenticationIndex />} />
-      </Routes>
-    </BrowserRouter>
+    <GlobalContext.Provider value={{ user, setUser, loggedIn, setLoggedIn }}>
+      <BrowserRouter basename="">
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" index element={<Home />} />
+          <Route path="/training" element={<TrainingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/userAuth" element={<AuthenticationIndex />} />
+        </Routes>
+      </BrowserRouter>
+    </GlobalContext.Provider>
   );
 }
 
