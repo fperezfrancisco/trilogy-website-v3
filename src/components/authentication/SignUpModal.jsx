@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { auth } from "../../firebase/init";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/context";
 
 function SignUpModal({ switchToLogin }) {
   const [parentSignUp, setParentSignUp] = useState(true);
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
 
   const handleParentAccClick = () => {
     setParentSignUp(true);
@@ -27,7 +35,24 @@ function SignUpModal({ switchToLogin }) {
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    alert("Logged In");
+    signUpUserWithEmail();
+  };
+
+  const signUpUserWithEmail = () => {
+    if (email && password) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          setUser(user);
+          setLoggedIn(true);
+          navigate("/userdashboard");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Oops something went wrong!");
+        });
+    }
   };
 
   return (
@@ -57,7 +82,7 @@ function SignUpModal({ switchToLogin }) {
             Use your information to set up your account, we will take care of
             adding your player in the next step.
           </p>
-          <form onSubmit={(e) => handleLogInSubmit(e)}>
+          <form onSubmit={(e) => handleRegisterSubmit(e)}>
             <ul className="w-full flex flex-col gap-4">
               <li className="w-full flex flex-col gap-2">
                 <label htmlFor="userParentName" className="font-medium">

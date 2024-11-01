@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { auth } from "../../firebase/init";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/context";
 
 function LogInModal({ switchToLogin }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
+
   const handleLogInSubmit = (e) => {
     e.preventDefault();
-    alert("Logged In");
+    signInUser();
   };
 
   const handleSignUpLink = () => {
@@ -17,6 +25,19 @@ function LogInModal({ switchToLogin }) {
   const handleKeyDownSignUp = (e) => {
     if (e.key === "Enter") {
       handleSignUpLink;
+    }
+  };
+
+  const signInUser = () => {
+    if (email && password) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          setUser(user);
+          setLoggedIn(true);
+          navigate("/userdashboard");
+        })
+        .catch((error) => console.log(error));
     }
   };
 
