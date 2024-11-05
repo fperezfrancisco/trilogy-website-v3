@@ -12,10 +12,15 @@ import { GlobalContext } from "./context/context";
 import UserDashboard from "./pages/UserDashboard";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/init";
+import UserAccountPage from "./pages/UserAccountPage";
+import UserPlayersPage from "./pages/UserPlayersPage";
+import UserSessionsPage from "./pages/UserSessionsPage";
 
 function App() {
   const [user, setUser] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,7 +35,18 @@ function App() {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ user, setUser, loggedIn, setLoggedIn }}>
+    <GlobalContext.Provider
+      value={{
+        user,
+        setUser,
+        loggedIn,
+        setLoggedIn,
+        loading,
+        setLoading,
+        loggingIn,
+        setLoggingIn,
+      }}
+    >
       <BrowserRouter basename="">
         <ScrollToTop />
         <Routes>
@@ -39,7 +55,22 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/userAuth" element={<AuthenticationIndex />} />
-          <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/userdashboard/:id" exact element={<UserDashboard />} />
+          <Route
+            path="/userdashboard/:id/myaccount"
+            exact
+            element={<UserAccountPage />}
+          />
+          <Route
+            path="/userdashboard/:id/myplayers"
+            exact
+            element={<UserPlayersPage />}
+          />
+          <Route
+            path="/userdashboard/:id/mysessions"
+            exact
+            element={<UserSessionsPage />}
+          />
         </Routes>
       </BrowserRouter>
     </GlobalContext.Provider>

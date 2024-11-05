@@ -5,3 +5,9 @@
 * {
   box-sizing: border-box;
 }
+
+#authScreen {
+  background-image: url("/src/assets/hero-art-banner.webp");
+  background-size: cover;
+  background-position: center;
+}

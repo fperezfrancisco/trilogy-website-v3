@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/context";
-import Header from "../components/nav/Header";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/init";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase/init";
+import Header from "../components/nav/Header";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
 
-function UserDashboard() {
+function UserAccountPage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
-  const [userMenuOpen, setUserMenuOpen] = useState();
+  const [userMenuOpen, setUserMenuOpen] = useState(true);
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
 
@@ -19,6 +18,7 @@ function UserDashboard() {
     setLoggedIn(false);
     navigate("/");
   };
+
   return (
     <div className="w-full h-full">
       <Header />
@@ -35,7 +35,7 @@ function UserDashboard() {
                 userMenuOpen ? "ml-[120px] lg:ml-[432px]" : "ml-[120px]"
               }`}
             >
-              <h1>User dashboard</h1>
+              <h1>My Account</h1>
               {showLogOutModal && (
                 <SignOutModal setShowLogOutModal={setShowLogOutModal} />
               )}
@@ -48,4 +48,4 @@ function UserDashboard() {
   );
 }
 
-export default UserDashboard;
+export default UserAccountPage;

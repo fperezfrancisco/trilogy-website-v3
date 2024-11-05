@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import trilogyLogo from "../../assets/logos/trilogy-t-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavList from "./NavList";
 import { HiMenu } from "react-icons/hi";
 import { HiX } from "react-icons/hi";
+import { GlobalContext } from "../../context/context";
+import { FaUser } from "react-icons/fa6";
 
 function Header() {
   const navBarList = [
@@ -12,7 +14,30 @@ function Header() {
     { itemTitle: "Contact", link: "/contact" },
   ];
 
+  const {
+    loggedIn,
+    setLoggedIn,
+    user,
+    setUser,
+    loading,
+    setLoading,
+    setLoggingIn,
+    loggingIn,
+  } = useContext(GlobalContext);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSignUpHeader = () => {
+    setLoggingIn(false);
+    navigate("/userauth");
+  };
+
+  const handleLogInHeader = () => {
+    setLoggingIn(true);
+    navigate("/userauth");
+  };
 
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -29,7 +54,36 @@ function Header() {
           />
         </Link>
       </span>
-      <NavList mobile={false} main={true} list={navBarList} />
+      <span className="flex items-center gap-4 lg:gap-10">
+        <NavList mobile={false} main={true} list={navBarList} />
+        <span className="h-full px-4 items-center gap-3 hidden md:flex">
+          {loggedIn ? (
+            <button
+              className="px-4 py-1 rounded-2xl border-[1px] border-black text-sm hover:bg-neutral-200 flex items-center gap-1 capitalize "
+              onClick={() => navigate("/userdashboard/1")}
+            >
+              <FaUser />
+              Account
+            </button>
+          ) : (
+            <>
+              <button
+                className="px-4 py-1 rounded-2xl border-[1px] border-black bg-black text-white text-sm hover:bg-neutral-600 flex items-center gap-1 capitalize "
+                onClick={handleSignUpHeader}
+              >
+                Sign Up
+              </button>
+              <button
+                className="px-4 py-1 rounded-2xl border-[1px] border-black text-sm hover:bg-neutral-200 flex items-center gap-1 capitalize "
+                onClick={handleLogInHeader}
+              >
+                Log In
+              </button>
+            </>
+          )}
+        </span>
+      </span>
+
       <span
         className={`h-full ml-4 flex md:hidden items-center justify-center`}
         onClick={toggleMenu}

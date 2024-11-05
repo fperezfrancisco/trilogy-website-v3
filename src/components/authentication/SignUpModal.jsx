@@ -1,7 +1,11 @@
 import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../firebase/init";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/context";
 
@@ -14,6 +18,7 @@ function SignUpModal({ switchToLogin }) {
   const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
 
   const handleParentAccClick = () => {
     setParentSignUp(true);
@@ -55,8 +60,24 @@ function SignUpModal({ switchToLogin }) {
     }
   };
 
+  const signUpWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        setUser(user);
+        setLoggedIn(true);
+        navigate("/userdashboard");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
-    <div className="w-full max-w-[600px] p-4 pt-8 flex flex-col items-center h-screen sm:h-fit sm:rounded-2xl min-[400px]:shadow-2xl bg-white">
+    <div className="w-full max-w-[600px] z-10 p-4 pt-8 flex flex-col items-center h-screen sm:h-fit sm:rounded-2xl min-[400px]:shadow-2xl bg-white">
       <h1 className="font-medium text-xl">Create your account now</h1>
       <div className="w-full flex max-w-[350px] sm:max-w-none flex-col sm:flex-row gap-4 justify-center mt-4">
         <button
@@ -143,6 +164,7 @@ function SignUpModal({ switchToLogin }) {
             <button
               tabIndex={0}
               className="w-full p-2 flex items-center justify-center border-2 border-neutral-700 rounded-2xl text-md gap-2 hover:bg-neutral-200 focus:bg-neutral-200"
+              onClick={signUpWithGoogle}
             >
               <FcGoogle className="text-2xl" />
               Sign Up with Google
