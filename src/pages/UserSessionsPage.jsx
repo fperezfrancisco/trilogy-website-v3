@@ -8,7 +8,7 @@ import SignOutModal from "../components/userDash/SignOutModal";
 
 function UserSessionsPage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
-  const [userMenuOpen, setUserMenuOpen] = useState(true);
+  const [userMenuOpen, setUserMenuOpen] = useState();
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
 
@@ -31,11 +31,13 @@ function UserSessionsPage() {
               setShowLogOutModal={setShowLogOutModal}
             />
             <div
-              className={`flex flex-col w-full h-full p-8 ${
-                userMenuOpen ? "ml-[120px] lg:ml-[432px]" : "ml-[120px]"
+              className={`flex flex-col w-full h-full p-4 sm:px-8 ${
+                userMenuOpen
+                  ? "ml-[80px] sm:ml-[100px] lg:ml-[432px]"
+                  : "ml-[80px] sm:ml-[100px]"
               }`}
             >
-              <h1>My Sessions</h1>
+              <h1 className="text-xl lg:text-2xl">My Sessions</h1>
               {showLogOutModal && (
                 <SignOutModal setShowLogOutModal={setShowLogOutModal} />
               )}

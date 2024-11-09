@@ -3,14 +3,11 @@ import Header from "../components/nav/Header";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
 import { GlobalContext } from "../context/context";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase/init";
-import NewPlayerBox from "../components/userDash/NewPlayerBox";
-import ExistingPlayerBox from "../components/userDash/ExistingPlayerBox";
+import { TiChevronRight } from "react-icons/ti";
 
-function UserPlayersPage() {
-  const { accid } = useParams();
-
+function PlayerProfilePage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
   const [userMenuOpen, setUserMenuOpen] = useState();
   const [showLogOutModal, setShowLogOutModal] = useState(false);
@@ -25,7 +22,6 @@ function UserPlayersPage() {
     setLoggedIn(false);
     navigate("/");
   };
-
   return (
     <div className="w-full h-full">
       <Header />
@@ -44,25 +40,14 @@ function UserPlayersPage() {
                   : "ml-[80px] sm:ml-[100px]"
               }`}
             >
-              <h1 className="text-xl lg:text-2xl">My Players</h1>
+              <h1 className="text-xl lg:text-2xl flex items-center gap-2">
+                <Link to={"/userdashboard/1/myplayers"}>My Players</Link>
+                <TiChevronRight /> Current Player
+              </h1>
               {showLogOutModal && (
                 <SignOutModal setShowLogOutModal={setShowLogOutModal} />
               )}
-              <div className="w-full py-4 my-4 flex flex-col lg:flex-wrap lg:flex-row gap-4">
-                <div className="w-full flex flex-wrap gap-4 border-2- border-neutral-200">
-                  <ExistingPlayerBox
-                    playerName={"Francisco Perez"}
-                    playerMembership={"Free Membership"}
-                    playerDob={"12/13/1997"}
-                  />
-                  <ExistingPlayerBox
-                    playerName={"Cesar Perez"}
-                    playerMembership={"Pro Membership"}
-                    playerDob={"05/08/2003"}
-                  />
-                  <NewPlayerBox accId={accid} />
-                </div>
-              </div>
+              <div className="w-full py-4 my-4 flex flex-col lg:flex-wrap lg:flex-row gap-4"></div>
             </div>
           </>
         )}
@@ -72,4 +57,4 @@ function UserPlayersPage() {
   );
 }
 
-export default UserPlayersPage;
+export default PlayerProfilePage;

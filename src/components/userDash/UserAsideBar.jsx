@@ -29,10 +29,10 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
         {userMenuOpen ? <TiChevronLeft /> : <TiChevronRight />}
       </div>
       <div
-        className="flex mt-8 w-fit cursor-pointer"
+        className="flex mt-8 w-fit cursor-pointer gap-2"
         onClick={() => navigate("/userdashboard/1/")}
       >
-        <div className="w-[36px] h-[36px] mr-2 hover:scale-110 transition-all duration-150 ease-out rounded-full flex items-center justify-center border-2 border-black font-semibold bg-blue-500 text-white">
+        <div className="w-[36px] h-[36px] hover:scale-110 transition-all duration-150 ease-out rounded-full flex items-center justify-center border-2 border-black font-semibold bg-blue-500 text-white">
           F
         </div>
         <div

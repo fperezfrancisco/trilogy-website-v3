@@ -15,6 +15,8 @@ import { auth } from "./firebase/init";
 import UserAccountPage from "./pages/UserAccountPage";
 import UserPlayersPage from "./pages/UserPlayersPage";
 import UserSessionsPage from "./pages/UserSessionsPage";
+import PlayerProfilePage from "./pages/PlayerProfilePage";
+import CreateNewPlayer from "./pages/CreateNewPlayer";
 
 function App() {
   const [user, setUser] = useState();
@@ -57,19 +59,29 @@ function App() {
           <Route path="/userAuth" element={<AuthenticationIndex />} />
           <Route path="/userdashboard/:id" exact element={<UserDashboard />} />
           <Route
-            path="/userdashboard/:id/myaccount"
+            path="/userdashboard/:accid/myaccount"
             exact
             element={<UserAccountPage />}
           />
           <Route
-            path="/userdashboard/:id/myplayers"
+            path="/userdashboard/:accid/myplayers"
             exact
             element={<UserPlayersPage />}
           />
           <Route
-            path="/userdashboard/:id/mysessions"
+            path="/userdashboard/:accid/newplayer"
+            exact
+            element={<CreateNewPlayer />}
+          />
+          <Route
+            path="/userdashboard/:accid/mysessions"
             exact
             element={<UserSessionsPage />}
+          />
+          <Route
+            path="/userdashboard/:accid/myplayers/:playerid"
+            exact
+            element={<PlayerProfilePage />}
           />
         </Routes>
       </BrowserRouter>

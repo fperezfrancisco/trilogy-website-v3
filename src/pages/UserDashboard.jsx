@@ -31,11 +31,13 @@ function UserDashboard() {
               setShowLogOutModal={setShowLogOutModal}
             />
             <div
-              className={`flex flex-col w-full h-full p-8 ${
-                userMenuOpen ? "ml-[120px] lg:ml-[432px]" : "ml-[120px]"
+              className={`flex flex-col w-full h-full p-4 sm:px-8 ${
+                userMenuOpen
+                  ? "ml-[80px] sm:ml-[100px] lg:ml-[432px]"
+                  : "ml-[80px] sm:ml-[100px]"
               }`}
             >
-              <h1>User dashboard</h1>
+              <h1 className="text-xl lg:text-2xl">User dashboard</h1>
               {showLogOutModal && (
                 <SignOutModal setShowLogOutModal={setShowLogOutModal} />
               )}
