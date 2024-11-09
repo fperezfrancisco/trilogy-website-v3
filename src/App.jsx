@@ -19,7 +19,9 @@ import PlayerProfilePage from "./pages/PlayerProfilePage";
 import CreateNewPlayer from "./pages/CreateNewPlayer";
 
 function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    playersList: [],
+  });
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loggingIn, setLoggingIn] = useState(true);
@@ -29,12 +31,16 @@ function App() {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        setUser(user);
+        setUser({ user, playersList: [] });
         setLoggedIn(true);
         // ...
       }
     });
   }, []);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
     <GlobalContext.Provider

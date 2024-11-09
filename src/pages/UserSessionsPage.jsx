@@ -5,6 +5,7 @@ import { auth } from "../firebase/init";
 import Header from "../components/nav/Header";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
+import SessionPreviewRow from "../components/sessions/SessionPreviewRow";
 
 function UserSessionsPage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
@@ -41,6 +42,44 @@ function UserSessionsPage() {
               {showLogOutModal && (
                 <SignOutModal setShowLogOutModal={setShowLogOutModal} />
               )}
+              <div className="w-full py-4 my-4 flex flex-col gap-4">
+                <div className="flex-col flex gap-2">
+                  <h2 className="text-blue-500">Upcoming</h2>
+                  <div className="w-full flex flex-wrap gap-4 ">
+                    {Array(4)
+                      .fill(0)
+                      .map((_, index) => (
+                        <SessionPreviewRow
+                          session={{
+                            title: "Prodigy Program",
+                            dateFormatted: "Friday 10 November 2024",
+                            time: "8am - 9am",
+                            price: "35",
+                            coach: "Coach Francisco C.",
+                          }}
+                        />
+                      ))}
+                  </div>
+                </div>
+                <div className="flex-col flex gap-2">
+                  <h2 className="text-blue-500">Previous</h2>
+                  <div className="w-full flex flex-wrap gap-4 ">
+                    {Array(4)
+                      .fill(0)
+                      .map((_, index) => (
+                        <SessionPreviewRow
+                          session={{
+                            title: "Prodigy Program",
+                            dateFormatted: "Friday 10 November 2024",
+                            time: "8am - 9am",
+                            price: "35",
+                            coach: "Coach Francisco C.",
+                          }}
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         )}

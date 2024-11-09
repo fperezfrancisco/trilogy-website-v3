@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { auth, db } from "../firebase/init";
+import { collection, addDoc } from "firebase/firestore";
+import { GlobalContext } from "../context/context";
 
 function CreateNewPlayer() {
   const { accid } = useParams();
+  const { user, setUser } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   const [playerLastName, setPlayerLastName] = useState();
@@ -183,6 +187,20 @@ function CreateNewPlayer() {
     setPlayerMembership(e.target.value);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setUser({
+      ...user,
+      playersList: [...user.playersList, currPlayer],
+    });
+    createPlayer();
+  };
+
+  //create player
+  function createPlayer() {
+    addDoc(collection(db, "players"), currPlayer);
+  }
+
   return (
     <div className="w-full h-full min-h-screen relative flex flex-col items-center pt-12">
       <p
@@ -228,6 +246,7 @@ function CreateNewPlayer() {
         <form
           action=""
           className="w-full max-w-[700px] h-full sm:min-h-[700px] sm:max-w-[700px] min-[800px]:border-2 min-[800px]:border-neutral-200 shadow-lg rounded-2xl flex flex-col p-2"
+          onSubmit={(e) => handleFormSubmit(e)}
         >
           {currFormPage === 0 && (
             <div className="playerInfo flex flex-col items-center w-full h-full p-4">
