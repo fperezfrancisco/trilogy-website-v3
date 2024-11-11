@@ -8,12 +8,15 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/context";
+import { Alert } from "@mui/material";
 
 function SignUpModal({ switchToLogin }) {
   const [parentSignUp, setParentSignUp] = useState(true);
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [alertDisplay, setAlertDisplay] = useState(false);
+  const [alertText, setAlertText] = useState("");
 
   const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
 
@@ -49,13 +52,37 @@ function SignUpModal({ switchToLogin }) {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          setUser(user);
+          setUser({ user: user, playersList: [] });
           setLoggedIn(true);
-          navigate("/userdashboard");
+          navigate(`/userdashboard/${user.uid}`);
         })
         .catch((error) => {
           console.log(error);
-          alert("Oops something went wrong!");
+          switch (error.code) {
+            case "auth/email-already-in-use":
+              setAlertText(
+                "Email address is already in use. Please proceed to log in."
+              );
+              setAlertDisplay(true);
+              break;
+            case "auth/invalid-email":
+              setAlertText("This email address is invalid");
+              setAlertDisplay(true);
+              break;
+            case "auth/operation-not-allowed":
+              setAlertText("Error during sign up. Please try again.");
+              setAlertDisplay(true);
+              break;
+            case "auth/weak-password":
+              setAlertText(
+                "Password is too weak. Must be at least 6 characters long!"
+              );
+              setAlertDisplay(true);
+              break;
+            default:
+              console.log(error.message);
+              break;
+          }
         });
     }
   };
@@ -69,9 +96,9 @@ function SignUpModal({ switchToLogin }) {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        setUser(user);
+        setUser({ user: user, playersList: [] });
         setLoggedIn(true);
-        navigate("/userdashboard");
+        navigate(`/userdashboard/${user.uid}`);
       })
       .catch((error) => console.log(error));
   };
@@ -99,10 +126,7 @@ function SignUpModal({ switchToLogin }) {
       </div>
       {parentSignUp !== "null" && parentSignUp ? (
         <div className="flex flex-col gap-4 p-4 w-full max-w-[450px] my-4">
-          <p className="text-[0.9rem] bg-blue-200 p-2">
-            Use your information to set up your account, we will take care of
-            adding your player in the next step.
-          </p>
+          {alertDisplay && <Alert severity="error">{alertText}</Alert>}
           <form onSubmit={(e) => handleRegisterSubmit(e)}>
             <ul className="w-full flex flex-col gap-4">
               <li className="w-full flex flex-col gap-2">

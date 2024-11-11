@@ -8,7 +8,14 @@ import authBkg from "../assets/hero-art-banner.webp";
 function AuthenticationIndex() {
   const navigate = useNavigate();
 
-  const { loggedIn, loggingIn, setLoggingIn } = useContext(GlobalContext);
+  const { loggedIn, loggingIn, setLoggingIn, user } = useContext(GlobalContext);
+
+  const handleLogIn = () => {
+    if (loggedIn) {
+      console.log("The user object: ", user);
+      navigate(`/userdashboard/${user.user.uid}`);
+    }
+  };
 
   return (
     <div
@@ -23,10 +30,7 @@ function AuthenticationIndex() {
       </p>
       <div className="absolute w-full h-full z-0 bg-blue-500/60"></div>
       {loggedIn ? (
-        <div
-          className="text-white cursor-pointer"
-          onClick={() => navigate("/userdashboard")}
-        >
+        <div className="text-white cursor-pointer" onClick={handleLogIn}>
           Go to dashboard
         </div>
       ) : loggingIn ? (

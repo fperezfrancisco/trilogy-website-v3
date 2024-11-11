@@ -6,6 +6,7 @@ import { auth } from "../firebase/init";
 import { useNavigate } from "react-router-dom";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
+import DialogBox from "../components/mui/DialogBox";
 
 function UserDashboard() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
@@ -19,6 +20,9 @@ function UserDashboard() {
     setLoggedIn(false);
     navigate("/");
   };
+
+  const getUserInfo = () => {};
+
   return (
     <div className="w-full h-full">
       <Header />
@@ -37,9 +41,17 @@ function UserDashboard() {
                   : "ml-[80px] sm:ml-[100px]"
               }`}
             >
-              <h1 className="text-xl lg:text-2xl">User dashboard</h1>
+              <h1 className="text-xl lg:text-2xl">My dashboard</h1>
               {showLogOutModal && (
-                <SignOutModal setShowLogOutModal={setShowLogOutModal} />
+                <DialogBox
+                  openDialog={true}
+                  title={"Are you sure you want to sign out?"}
+                  text={"You will have to sign in again if you continue."}
+                  confirmBtnText={"Yes Sign Out"}
+                  cancelBtnText={"Cancel"}
+                  confirmBtnAction={handleSignOut}
+                  cancelBtnAction={() => setShowLogOutModal(false)}
+                />
               )}
             </div>
           </>

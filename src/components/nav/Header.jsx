@@ -60,7 +60,7 @@ function Header() {
           {loggedIn ? (
             <button
               className="px-4 py-1 rounded-2xl border-[1px] border-black text-sm hover:bg-neutral-200 flex items-center gap-1 capitalize "
-              onClick={() => navigate("/userdashboard/1")}
+              onClick={() => navigate(`/userdashboard/${user.user.uid}`)}
             >
               <FaUser />
               Account

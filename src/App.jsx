@@ -17,6 +17,7 @@ import UserPlayersPage from "./pages/UserPlayersPage";
 import UserSessionsPage from "./pages/UserSessionsPage";
 import PlayerProfilePage from "./pages/PlayerProfilePage";
 import CreateNewPlayer from "./pages/CreateNewPlayer";
+import PasswordRecovery from "./components/authentication/PasswordRecovery";
 
 function App() {
   const [user, setUser] = useState({
@@ -63,29 +64,30 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/userAuth" element={<AuthenticationIndex />} />
+          <Route path="/passwordRecovery" element={<PasswordRecovery />} />
           <Route path="/userdashboard/:id" exact element={<UserDashboard />} />
           <Route
-            path="/userdashboard/:accid/myaccount"
+            path="/userdashboard/:id/myaccount"
             exact
             element={<UserAccountPage />}
           />
           <Route
-            path="/userdashboard/:accid/myplayers"
+            path="/userdashboard/:id/myplayers"
             exact
             element={<UserPlayersPage />}
           />
           <Route
-            path="/userdashboard/:accid/newplayer"
+            path="/userdashboard/:id/newplayer"
             exact
             element={<CreateNewPlayer />}
           />
           <Route
-            path="/userdashboard/:accid/mysessions"
+            path="/userdashboard/:id/mysessions"
             exact
             element={<UserSessionsPage />}
           />
           <Route
-            path="/userdashboard/:accid/myplayers/:playerid"
+            path="/userdashboard/:id/myplayers/:playerid"
             exact
             element={<PlayerProfilePage />}
           />

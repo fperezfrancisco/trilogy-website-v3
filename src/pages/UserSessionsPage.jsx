@@ -6,6 +6,8 @@ import Header from "../components/nav/Header";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
 import SessionPreviewRow from "../components/sessions/SessionPreviewRow";
+import DialogBox from "../components/mui/DialogBox";
+import { signOut } from "firebase/auth";
 
 function UserSessionsPage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
@@ -40,7 +42,15 @@ function UserSessionsPage() {
             >
               <h1 className="text-xl lg:text-2xl">My Sessions</h1>
               {showLogOutModal && (
-                <SignOutModal setShowLogOutModal={setShowLogOutModal} />
+                <DialogBox
+                  openDialog={true}
+                  title={"Are you sure you want to sign out?"}
+                  text={"You will have to sign in again if you continue."}
+                  confirmBtnText={"Yes Sign Out"}
+                  cancelBtnText={"Cancel"}
+                  confirmBtnAction={handleSignOut}
+                  cancelBtnAction={() => setShowLogOutModal(false)}
+                />
               )}
               <div className="w-full py-4 my-4 flex flex-col gap-4">
                 <div className="flex-col flex gap-2">

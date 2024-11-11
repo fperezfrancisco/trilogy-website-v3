@@ -4,10 +4,12 @@ import { FaUser } from "react-icons/fa";
 import { FaUserGroup } from "react-icons/fa6";
 import { GiSoccerField } from "react-icons/gi";
 import { BiLogOut } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   const handleLogOut = () => {
     setShowLogOutModal(true);
@@ -30,7 +32,7 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
       </div>
       <div
         className="flex mt-8 w-fit cursor-pointer gap-2"
-        onClick={() => navigate("/userdashboard/1/")}
+        onClick={() => navigate(`/userdashboard/${id}/`)}
       >
         <div className="w-[36px] h-[36px] hover:scale-110 transition-all duration-150 ease-out rounded-full flex items-center justify-center border-2 border-black font-semibold bg-blue-500 text-white">
           F
@@ -49,7 +51,7 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
         <li
           tabIndex={0}
           className="flex justify-start items-center cursor-pointer hover:underline hover:text-blue-500 gap-2"
-          onClick={() => navigate("/userdashboard/1/myaccount")}
+          onClick={() => navigate(`/userdashboard/${id}/myaccount`)}
         >
           <div className="">
             <FaUser className="text-[1.5rem]" />
@@ -61,7 +63,7 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
         <li
           tabIndex={0}
           className="flex justify-start items-center cursor-pointer hover:underline hover:text-blue-500 gap-2"
-          onClick={() => navigate("/userdashboard/1/myplayers")}
+          onClick={() => navigate(`/userdashboard/${id}/myplayers`)}
         >
           <div className="">
             <FaUserGroup className="text-[1.5rem]" />
@@ -73,7 +75,7 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
         <li
           tabIndex={0}
           className="flex justify-start items-center cursor-pointer hover:underline hover:text-blue-500 gap-2"
-          onClick={() => navigate("/userdashboard/1/mysessions")}
+          onClick={() => navigate(`/userdashboard/${id}/mysessions`)}
         >
           <div className="">
             <GiSoccerField className="text-[1.75rem]" />

@@ -6,6 +6,8 @@ import { GlobalContext } from "../context/context";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase/init";
 import { TiChevronRight } from "react-icons/ti";
+import DialogBox from "../components/mui/DialogBox";
+import { signOut } from "firebase/auth";
 
 function PlayerProfilePage() {
   const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
@@ -45,7 +47,15 @@ function PlayerProfilePage() {
                 <TiChevronRight /> Current Player
               </h1>
               {showLogOutModal && (
-                <SignOutModal setShowLogOutModal={setShowLogOutModal} />
+                <DialogBox
+                  openDialog={true}
+                  title={"Are you sure you want to sign out?"}
+                  text={"You will have to sign in again if you continue."}
+                  confirmBtnText={"Yes Sign Out"}
+                  cancelBtnText={"Cancel"}
+                  confirmBtnAction={handleSignOut}
+                  cancelBtnAction={() => setShowLogOutModal(false)}
+                />
               )}
               <div className="w-full py-4 my-4 flex flex-col lg:flex-wrap lg:flex-row gap-4"></div>
             </div>

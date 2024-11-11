@@ -7,6 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../firebase/init";
 import NewPlayerBox from "../components/userDash/NewPlayerBox";
 import ExistingPlayerBox from "../components/userDash/ExistingPlayerBox";
+import DialogBox from "../components/mui/DialogBox";
+import { signOut } from "firebase/auth";
 
 function UserPlayersPage() {
   const { accid } = useParams();
@@ -46,7 +48,15 @@ function UserPlayersPage() {
             >
               <h1 className="text-xl lg:text-2xl">My Players</h1>
               {showLogOutModal && (
-                <SignOutModal setShowLogOutModal={setShowLogOutModal} />
+                <DialogBox
+                  openDialog={true}
+                  title={"Are you sure you want to sign out?"}
+                  text={"You will have to sign in again if you continue."}
+                  confirmBtnText={"Yes Sign Out"}
+                  cancelBtnText={"Cancel"}
+                  confirmBtnAction={handleSignOut}
+                  cancelBtnAction={() => setShowLogOutModal(false)}
+                />
               )}
               <div className="w-full py-4 my-4 flex flex-col lg:flex-wrap lg:flex-row gap-4">
                 <div className="w-full flex flex-wrap gap-4 border-2- border-neutral-200">
