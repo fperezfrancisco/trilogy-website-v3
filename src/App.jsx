@@ -18,42 +18,78 @@ import UserSessionsPage from "./pages/UserSessionsPage";
 import PlayerProfilePage from "./pages/PlayerProfilePage";
 import CreateNewPlayer from "./pages/CreateNewPlayer";
 import PasswordRecovery from "./components/authentication/PasswordRecovery";
+import ParentInfoPage from "./pages/ParentInfoPage";
+import GlobalApi from "./firebase/GlobalApi";
 
 function App() {
-  const [user, setUser] = useState({
-    playersList: [],
-  });
+  const [currUser, setCurrUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loggingIn, setLoggingIn] = useState(true);
+  const [accFinal, setAccFinal] = useState(false);
+  const [parentObj, setParentObj] = useState(null);
+  const [playerList, setPlayerList] = useState([]);
+
+  const getUserParentInfo = async (user) => {
+    const parentTempObj = await GlobalApi.getParentByUid(user.uid)
+      .then((resp) => {
+        return resp;
+      })
+      .catch((err) => console.log(err));
+    setParentObj(parentTempObj);
+  };
+
+  const updatePlayerList = async (user) => {
+    const playerListTemp = await GlobalApi.getAllPlayers(user.uid)
+      .then((resp) => resp)
+      .catch((err) => console.log(err));
+    setPlayerList(playerListTemp);
+  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        setUser({ user, playersList: [] });
+        getUserParentInfo(user);
+        updatePlayerList(user);
+        setCurrUser({
+          user: user,
+          parentInfo: parentObj,
+          playerList: playerList,
+        });
+
         setLoggedIn(true);
+        console.log(currUser);
         // ...
       }
     });
   }, []);
 
   useEffect(() => {
-    console.log(user);
-  }, [user]);
+    console.log(currUser);
+  }, [currUser]);
+
+  useEffect(() => {
+    console.log("Parent object has been updated");
+    console.log("User Object: ", currUser);
+  }, [parentObj]);
 
   return (
     <GlobalContext.Provider
       value={{
-        user,
-        setUser,
+        currUser,
+        setCurrUser,
+        parentObj,
+        setParentObj,
         loggedIn,
         setLoggedIn,
         loading,
         setLoading,
         loggingIn,
         setLoggingIn,
+        playerList,
+        setPlayerList,
       }}
     >
       <BrowserRouter basename="">
@@ -66,6 +102,7 @@ function App() {
           <Route path="/userAuth" element={<AuthenticationIndex />} />
           <Route path="/passwordRecovery" element={<PasswordRecovery />} />
           <Route path="/userdashboard/:id" exact element={<UserDashboard />} />
+          <Route path="/parentinfo" exact element={<ParentInfoPage />} />
           <Route
             path="/userdashboard/:id/myaccount"
             exact

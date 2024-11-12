@@ -11,19 +11,24 @@ import DialogBox from "../components/mui/DialogBox";
 import { signOut } from "firebase/auth";
 
 function UserPlayersPage() {
-  const { accid } = useParams();
+  const { id } = useParams();
 
-  const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
+  const {
+    currUser,
+    parentObj,
+    loggedIn,
+    setCurrUser,
+    setLoggedIn,
+    playerList,
+    setPlayerList,
+  } = useContext(GlobalContext);
   const [userMenuOpen, setUserMenuOpen] = useState();
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
 
-  //states
-  const [playerList, setPlayerList] = useState();
-
   const handleSignOut = () => {
     signOut(auth);
-    setUser({});
+    setCurrUser({});
     setLoggedIn(false);
     navigate("/");
   };
@@ -60,17 +65,20 @@ function UserPlayersPage() {
               )}
               <div className="w-full py-4 my-4 flex flex-col lg:flex-wrap lg:flex-row gap-4">
                 <div className="w-full flex flex-wrap gap-4 border-2- border-neutral-200">
-                  <ExistingPlayerBox
-                    playerName={"Francisco Perez"}
-                    playerMembership={"Free Membership"}
-                    playerDob={"12/13/1997"}
-                  />
-                  <ExistingPlayerBox
-                    playerName={"Cesar Perez"}
-                    playerMembership={"Pro Membership"}
-                    playerDob={"05/08/2003"}
-                  />
-                  <NewPlayerBox accId={accid} />
+                  {parentObj &&
+                    playerList &&
+                    playerList.map((player) => (
+                      <ExistingPlayerBox
+                        playerName={
+                          player.playerFirstName + " " + player.playerLastName
+                        }
+                        playerMembership={player.playerMembership}
+                        playerDob={player.playerDob}
+                        id={id}
+                        playerId={player.id}
+                      />
+                    ))}
+                  <NewPlayerBox accId={id} />
                 </div>
               </div>
             </div>

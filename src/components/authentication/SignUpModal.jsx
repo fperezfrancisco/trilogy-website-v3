@@ -18,7 +18,7 @@ function SignUpModal({ switchToLogin }) {
   const [alertDisplay, setAlertDisplay] = useState(false);
   const [alertText, setAlertText] = useState("");
 
-  const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
+  const { setLoggedIn, loggedIn } = useContext(GlobalContext);
 
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -52,9 +52,9 @@ function SignUpModal({ switchToLogin }) {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          setUser({ user: user, playersList: [] });
+
           setLoggedIn(true);
-          navigate(`/userdashboard/${user.uid}`);
+          navigate(`/parentinfo`);
         })
         .catch((error) => {
           console.log(error);
@@ -96,9 +96,9 @@ function SignUpModal({ switchToLogin }) {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        setUser({ user: user, playersList: [] });
+
         setLoggedIn(true);
-        navigate(`/userdashboard/${user.uid}`);
+        navigate(`/parentinfo`);
       })
       .catch((error) => console.log(error));
   };
@@ -129,21 +129,6 @@ function SignUpModal({ switchToLogin }) {
           {alertDisplay && <Alert severity="error">{alertText}</Alert>}
           <form onSubmit={(e) => handleRegisterSubmit(e)}>
             <ul className="w-full flex flex-col gap-4">
-              <li className="w-full flex flex-col gap-2">
-                <label htmlFor="userParentName" className="font-medium">
-                  Parent Name
-                  <span className="text-[0.95rem] text-blue-500 pl-1">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="userParentName"
-                  id="userParentName"
-                  className="p-2 pl-3 border-[2px] border-neutral-200 rounded-2xl"
-                  placeholder="Parent Name"
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </li>
               <li className="w-full flex flex-col gap-2">
                 <label htmlFor="userEmail" className="font-medium">
                   Email
@@ -179,7 +164,7 @@ function SignUpModal({ switchToLogin }) {
               tabIndex={0}
               className="w-full p-3 bg-blue-500 text-white flex items-center text-center justify-center rounded-2xl mt-4 font-semibold hover:bg-blue-700 focus:bg-blue-700"
             >
-              Create my account
+              Next Step
             </button>
           </form>
           <div className="w-full h-[1.5px] bg-neutral-200"></div>

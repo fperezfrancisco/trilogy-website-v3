@@ -8,12 +8,13 @@ import authBkg from "../assets/hero-art-banner.webp";
 function AuthenticationIndex() {
   const navigate = useNavigate();
 
-  const { loggedIn, loggingIn, setLoggingIn, user } = useContext(GlobalContext);
+  const { loggedIn, loggingIn, setLoggingIn, currUser } =
+    useContext(GlobalContext);
 
   const handleLogIn = () => {
     if (loggedIn) {
-      console.log("The user object: ", user);
-      navigate(`/userdashboard/${user.user.uid}`);
+      console.log("The user object: ", currUser);
+      navigate(`/userdashboard/${currUser.user.uid}`);
     }
   };
 

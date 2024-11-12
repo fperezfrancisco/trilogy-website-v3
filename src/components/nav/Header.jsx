@@ -17,7 +17,7 @@ function Header() {
   const {
     loggedIn,
     setLoggedIn,
-    user,
+    currUser,
     setUser,
     loading,
     setLoading,
@@ -60,7 +60,7 @@ function Header() {
           {loggedIn ? (
             <button
               className="px-4 py-1 rounded-2xl border-[1px] border-black text-sm hover:bg-neutral-200 flex items-center gap-1 capitalize "
-              onClick={() => navigate(`/userdashboard/${user.user.uid}`)}
+              onClick={() => navigate(`/userdashboard/${currUser.user.uid}`)}
             >
               <FaUser />
               Account

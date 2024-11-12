@@ -5,12 +5,12 @@ import { GlobalContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 
 function SignOutModal({ setShowLogOutModal }) {
-  const { setUser, setLoggedIn } = useContext(GlobalContext);
+  const { setCurrUser, setLoggedIn } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     signOut(auth);
-    setUser({});
+    setCurrUser();
     setLoggedIn(false);
     navigate("/");
   };

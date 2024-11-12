@@ -16,7 +16,7 @@ function LogInModal({ switchToLogin }) {
   const [alertDisplay, setAlertDisplay] = useState(false);
   const [alertText, setAlertText] = useState("");
 
-  const { user, setUser, setLoggedIn, loggedIn } = useContext(GlobalContext);
+  const { setLoggedIn, loggedIn } = useContext(GlobalContext);
 
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -41,7 +41,7 @@ function LogInModal({ switchToLogin }) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          setUser({ user: user, playersList: [] });
+
           setLoggedIn(true);
           navigate(`/userdashboard/${user.uid}`);
         })
@@ -73,7 +73,6 @@ function LogInModal({ switchToLogin }) {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        setUser({ user: user, playersList: [] });
         setLoggedIn(true);
         navigate(`/userdashboard/${user.uid}`);
         // IdP data available using getAdditionalUserInfo(result)

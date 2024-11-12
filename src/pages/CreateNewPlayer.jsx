@@ -5,8 +5,15 @@ import { collection, addDoc } from "firebase/firestore";
 import { GlobalContext } from "../context/context";
 
 function CreateNewPlayer() {
-  const { accid } = useParams();
-  const { user, setUser } = useContext(GlobalContext);
+  const { id } = useParams();
+  const {
+    currUser,
+    setCurrUser,
+    parentObj,
+    setParentObj,
+    setPlayerList,
+    playerList,
+  } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   const [playerLastName, setPlayerLastName] = useState();
@@ -36,7 +43,7 @@ function CreateNewPlayer() {
     playerStrengths: playerStrengths,
     playerWeaknesses: playerWeaknesses,
     playerMembership: playerMembership,
-    playerParentId: accid,
+    playerParentId: id,
     playerSessions: [],
   };
 
@@ -189,23 +196,30 @@ function CreateNewPlayer() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setUser({
-      ...user,
-      playersList: [...user.playersList, currPlayer],
-    });
+    //got rid of player object update
     createPlayer();
+    navigate(`/userdashboard/${id}/`);
   };
 
   //create player
   function createPlayer() {
     addDoc(collection(db, "players"), currPlayer);
+    console.log({
+      ...parentObj,
+      playerList: [...parentObj.playerList, currPlayer],
+    });
+    setParentObj({
+      ...parentObj,
+      playerList: [...parentObj.playerList, currPlayer],
+    });
+    setPlayerList([...playerList, currPlayer]);
   }
 
   return (
     <div className="w-full h-full min-h-screen relative flex flex-col items-center pt-12">
       <p
         className="absolute top-4 left-4 cursor-pointer hover:underline z-10 text-neutral-500"
-        onClick={() => navigate(`/userdashboard/${accid}/`)}
+        onClick={() => navigate(`/userdashboard/${id}/`)}
       >
         Back to dashboard
       </p>

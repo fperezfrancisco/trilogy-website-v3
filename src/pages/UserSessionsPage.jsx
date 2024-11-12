@@ -10,14 +10,15 @@ import DialogBox from "../components/mui/DialogBox";
 import { signOut } from "firebase/auth";
 
 function UserSessionsPage() {
-  const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
+  const { user, loggedIn, setCurrUser, setLoggedIn } =
+    useContext(GlobalContext);
   const [userMenuOpen, setUserMenuOpen] = useState();
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     signOut(auth);
-    setUser({});
+    setCurrUser({});
     setLoggedIn(false);
     navigate("/");
   };

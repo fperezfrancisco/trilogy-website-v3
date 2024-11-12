@@ -3,20 +3,27 @@ import { GlobalContext } from "../context/context";
 import Header from "../components/nav/Header";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/init";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserAsideBar from "../components/userDash/UserAsideBar";
 import SignOutModal from "../components/userDash/SignOutModal";
 import DialogBox from "../components/mui/DialogBox";
 
 function UserDashboard() {
-  const { user, loggedIn, setUser, setLoggedIn } = useContext(GlobalContext);
+  const {
+    currUser,
+    loggedIn,
+    setCurrUser,
+    setLoggedIn,
+    parentObj,
+    setParentObj,
+  } = useContext(GlobalContext);
   const [userMenuOpen, setUserMenuOpen] = useState();
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     signOut(auth);
-    setUser({});
+    setCurrUser({});
     setLoggedIn(false);
     navigate("/");
   };
@@ -52,6 +59,16 @@ function UserDashboard() {
                   confirmBtnAction={handleSignOut}
                   cancelBtnAction={() => setShowLogOutModal(false)}
                 />
+              )}
+              {loggedIn && parentObj === null && (
+                <div className="my-8 flex flex-col">
+                  <Link
+                    to={"/parentInfo"}
+                    className="hover:underline p-2 border-2 border-neutral-700 rounded-xl max-w-[350px] flex items-center justify-center hover:bg-neutral-200"
+                  >
+                    Complete Parent Info
+                  </Link>
+                </div>
               )}
             </div>
           </>

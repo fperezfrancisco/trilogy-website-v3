@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TiChevronLeft, TiChevronRight } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
 import { FaUserGroup } from "react-icons/fa6";
 import { GiSoccerField } from "react-icons/gi";
 import { BiLogOut } from "react-icons/bi";
 import { useNavigate, useParams } from "react-router-dom";
+import { GlobalContext } from "../../context/context";
 
 function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
   const navigate = useNavigate();
+
+  const { currUser } = useContext(GlobalContext);
 
   const { id } = useParams();
 
@@ -34,16 +37,29 @@ function UserAsideBar({ userMenuOpen, setUserMenuOpen, setShowLogOutModal }) {
         className="flex mt-8 w-fit cursor-pointer gap-2"
         onClick={() => navigate(`/userdashboard/${id}/`)}
       >
-        <div className="w-[36px] h-[36px] hover:scale-110 transition-all duration-150 ease-out rounded-full flex items-center justify-center border-2 border-black font-semibold bg-blue-500 text-white">
-          F
+        <div className="uppercase w-[36px] h-[36px] hover:scale-110 transition-all duration-150 ease-out rounded-full flex items-center justify-center border-2 border-black font-semibold bg-blue-500 text-white">
+          {currUser.user && currUser.user.displayName && (
+            <>{currUser.user.displayName[0]}</>
+          )}
+          {currUser && !currUser.user.displayName && (
+            <>{currUser.user.email[0]}</>
+          )}
         </div>
         <div
-          className={`w-fit flex-col ${
+          className={`w-fit flex-col justify-center ${
             userMenuOpen ? "flex hover:underline" : "hidden"
           } `}
         >
-          <h2 className="font-semibold my-0 leading-none">Francisco Perez</h2>
-          <p className="text-sm">fperezfrancisco4@gmail.com</p>
+          <h2
+            className={`font-semibold my-0 leading-none ${
+              currUser.user.displayName ? "block" : "hidden"
+            }`}
+          >
+            {currUser.user && currUser.user.displayName && (
+              <>{currUser.user.displayName}</>
+            )}
+          </h2>
+          <p className="text-sm">{currUser.user && currUser.user.email}</p>
         </div>
       </div>
       <div className="w-full h-[2px] my-4 bg-neutral-200"></div>
