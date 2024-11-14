@@ -12,7 +12,13 @@ import {
 import { styled } from "@mui/material/styles";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
-function SessionPreviewRow({ session }) {
+function SessionPreviewRow({
+  session,
+  openBook,
+  setOpenBook,
+  openOptions,
+  setOpenOptions,
+}) {
   const [currSessionTitle, setCurrSessionTitle] = useState("Trilogy Academy");
   const [currSessionDate, setCurrSessionDate] = useState(
     "Saturday 25 December 2024"
@@ -26,7 +32,7 @@ function SessionPreviewRow({ session }) {
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleClickOpen = () => {
-    setOpenDialog(true);
+    setOpenBook(true);
   };
   const handleClose = () => {
     setOpenDialog(false);

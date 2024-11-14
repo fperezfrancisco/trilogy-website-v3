@@ -1,8 +1,11 @@
 import { DateCalendar } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SessionPreviewRow from "../sessions/SessionPreviewRow";
 import { Skeleton } from "@mui/material";
+import OpenDialog from "./OpenDialog";
+import GuestCheckoutOrSignIn from "./GuestCheckoutOrSignIn";
+import { GlobalContext } from "../../context/context";
 
 function MainScheduleBlock() {
   const [selectedDate, setSelectedDate] = useState();
@@ -12,6 +15,9 @@ function MainScheduleBlock() {
   const [currDate, setCurrDate] = useState(dayjs().format("MM/DD/YYYY"));
   const [showToday, setShowToday] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [bookOpen, setBookOpen] = useState(true);
+
+  const { loggedIn } = useContext(GlobalContext);
 
   const handleCaledarChange = (value) => {
     setSelectedDate(value.$d);
@@ -20,6 +26,10 @@ function MainScheduleBlock() {
     } else {
       setShowToday(false);
     }
+  };
+
+  const handleBookOpen = () => {
+    setBookOpen(true);
   };
 
   useEffect(() => {
@@ -65,12 +75,16 @@ function MainScheduleBlock() {
                   .map((_, index) => <Skeleton variant="rounded" height={60} />)
               : Array(8)
                   .fill(0)
-                  .map((_, index) => <SessionPreviewRow />)}
+                  .map((_, index) => (
+                    <SessionPreviewRow setOpenBook={setBookOpen} />
+                  ))}
           </div>
         ) : (
           <></>
         )}
       </div>
+      {bookOpen && !loggedIn && <GuestCheckoutOrSignIn setOpen={setBookOpen} />}
+      {bookOpen && loggedIn && <OpenDialog setOpen={setBookOpen} />}
     </div>
   );
 }
