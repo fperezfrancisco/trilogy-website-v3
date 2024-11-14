@@ -20,6 +20,10 @@ import CreateNewPlayer from "./pages/CreateNewPlayer";
 import PasswordRecovery from "./components/authentication/PasswordRecovery";
 import ParentInfoPage from "./pages/ParentInfoPage";
 import GlobalApi from "./firebase/GlobalApi";
+import SchedulePage from "./pages/SchedulePage";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+//import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 
 function App() {
   const [currUser, setCurrUser] = useState({});
@@ -76,61 +80,68 @@ function App() {
   }, [parentObj]);
 
   return (
-    <GlobalContext.Provider
-      value={{
-        currUser,
-        setCurrUser,
-        parentObj,
-        setParentObj,
-        loggedIn,
-        setLoggedIn,
-        loading,
-        setLoading,
-        loggingIn,
-        setLoggingIn,
-        playerList,
-        setPlayerList,
-      }}
-    >
-      <BrowserRouter basename="">
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" index element={<Home />} />
-          <Route path="/training" element={<TrainingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/userAuth" element={<AuthenticationIndex />} />
-          <Route path="/passwordRecovery" element={<PasswordRecovery />} />
-          <Route path="/userdashboard/:id" exact element={<UserDashboard />} />
-          <Route path="/parentinfo" exact element={<ParentInfoPage />} />
-          <Route
-            path="/userdashboard/:id/myaccount"
-            exact
-            element={<UserAccountPage />}
-          />
-          <Route
-            path="/userdashboard/:id/myplayers"
-            exact
-            element={<UserPlayersPage />}
-          />
-          <Route
-            path="/userdashboard/:id/newplayer"
-            exact
-            element={<CreateNewPlayer />}
-          />
-          <Route
-            path="/userdashboard/:id/mysessions"
-            exact
-            element={<UserSessionsPage />}
-          />
-          <Route
-            path="/userdashboard/:id/myplayers/:playerid"
-            exact
-            element={<PlayerProfilePage />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </GlobalContext.Provider>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <GlobalContext.Provider
+        value={{
+          currUser,
+          setCurrUser,
+          parentObj,
+          setParentObj,
+          loggedIn,
+          setLoggedIn,
+          loading,
+          setLoading,
+          loggingIn,
+          setLoggingIn,
+          playerList,
+          setPlayerList,
+        }}
+      >
+        <BrowserRouter basename="">
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" index element={<Home />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/training" element={<TrainingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/userAuth" element={<AuthenticationIndex />} />
+            <Route path="/passwordRecovery" element={<PasswordRecovery />} />
+            <Route
+              path="/userdashboard/:id"
+              exact
+              element={<UserDashboard />}
+            />
+            <Route path="/parentinfo" exact element={<ParentInfoPage />} />
+            <Route
+              path="/userdashboard/:id/myaccount"
+              exact
+              element={<UserAccountPage />}
+            />
+            <Route
+              path="/userdashboard/:id/myplayers"
+              exact
+              element={<UserPlayersPage />}
+            />
+            <Route
+              path="/userdashboard/:id/newplayer"
+              exact
+              element={<CreateNewPlayer />}
+            />
+            <Route
+              path="/userdashboard/:id/mysessions"
+              exact
+              element={<UserSessionsPage />}
+            />
+            <Route
+              path="/userdashboard/:id/myplayers/:playerid"
+              exact
+              element={<PlayerProfilePage />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </GlobalContext.Provider>
+    </LocalizationProvider>
   );
 }
 
