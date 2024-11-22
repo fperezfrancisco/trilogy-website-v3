@@ -18,8 +18,8 @@ function App() {
         <Route path="/training" element={<TrainingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/winter" element={<WinterPage />} />
-        <Route path="/prodigy" element={<ProdigyPage />} />
+        <Route path="/winter" exact element={<WinterPage />} />
+        <Route path="/prodigy" exact element={<ProdigyPage />} />
       </Routes>
     </BrowserRouter>
   );
