@@ -7,6 +7,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import ScrollToTop from "./components/ScrollToTop";
 import WinterPage from "./pages/WinterPage";
+import ProdigyPage from "./pages/ProdigyPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/winter" element={<WinterPage />} />
+        <Route path="/prodigy" element={<ProdigyPage />} />
       </Routes>
     </BrowserRouter>
   );
