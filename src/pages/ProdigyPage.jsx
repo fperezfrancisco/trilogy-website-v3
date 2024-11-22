@@ -6,6 +6,7 @@ import CtaSection from "../components/cta/CtaSection";
 import Footer from "../components/footer/Footer";
 import prodigyImg from "../assets/prodigy-wide.png";
 import ProdigyProgramsSection from "../components/main/ProdigyProgramsSection";
+import prodigySquare from "../assets/prodigy-square.png";
 
 function ProdigyPage() {
   return (
@@ -16,6 +17,8 @@ function ProdigyPage() {
           mainTitle={"Perfect your"}
           specialTitleText={"Foundations"}
           heroImg={prodigyImg}
+          heroImgMedium={prodigyImg}
+          heroSquare={prodigySquare}
         />
         <ProdigyProgramsSection />
         <HomeReviewSection />
