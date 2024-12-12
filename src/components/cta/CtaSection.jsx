@@ -24,7 +24,7 @@ function CtaSection() {
             title={"Set up my call now"}
             action={() =>
               openInNewTab(
-                "https://trilogytoei.setmore.com/book?step=time-slot&products=945c4fe7-bef2-4156-b745-b925f27afd16&type=service&staff=QmtZkNxKeaJl9jwqfuLlDFTbaMAFIXUq&staffSelected=true"
+                "https://trilogysoccer.setmore.com/book?step=time-slot&products=945c4fe7-bef2-4156-b745-b925f27afd16&type=service&staff=QmtZkNxKeaJl9jwqfuLlDFTbaMAFIXUq&staffSelected=true"
               )
             }
           />
