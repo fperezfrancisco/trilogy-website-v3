@@ -66,7 +66,7 @@ function HeroSectionMain() {
             primary={true}
             full={true}
             title="Start Training Now"
-            action={() => openInNewTab("https://trilogytoei.setmore.com/")}
+            action={() => openInNewTab("https://trilogysoccer.setmore.com/")}
           />
         )}
       </div>
