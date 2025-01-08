@@ -21,7 +21,7 @@ function SkillDevelopmentPage() {
           heroImgMedium={winterMedium}
           heroSquare={winterSquare}
         />
-        <WinterProgramSection />
+        <SkillDevelopmentPage />
         <HomeReviewSection />
         <CtaSection />
       </main>
