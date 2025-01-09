@@ -21,11 +21,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/winter" exact element={<WinterPage />} />
         <Route path="/prodigy" exact element={<ProdigyPage />} />
-        <Route
-          path="/skilldevelopment"
-          exact
-          element={<SkillDevelopmentPage />}
-        />
+        <Route path="/skilldevelopment" element={<SkillDevelopmentPage />} />
       </Routes>
     </BrowserRouter>
   );
