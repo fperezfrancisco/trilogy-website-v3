@@ -19,7 +19,7 @@ function App() {
         <Route path="/training" element={<TrainingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/winter" exact element={<WinterPage />} />
+        <Route path="/winter" exact element={<SkillDevelopmentPage />} />
         <Route path="/prodigy" exact element={<ProdigyPage />} />
         <Route path="/skilldevelopment" element={<SkillDevelopmentPage />} />
       </Routes>
