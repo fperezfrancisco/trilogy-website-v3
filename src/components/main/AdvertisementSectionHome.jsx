@@ -37,7 +37,7 @@ function AdvertisementSectionHome() {
           )}
           <button
             className="p-2 border-2 border-black rounded-xl bg-neutral-300 hover:bg-neutral-400 w-full max-w-[350px] mt-4"
-            onClick={() => navigate("/winter")}
+            onClick={() => navigate("/skilldevelopment")}
           >
             Learn More
           </button>
