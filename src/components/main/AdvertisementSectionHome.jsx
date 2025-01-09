@@ -1,6 +1,7 @@
 import React from "react";
 import winterPrograms from "../../assets/Winter-Programs.png";
 import prodigyFlyer from "../../assets/Prodigy-Flyer.png";
+import januaryFlyer from "../../assets/trilogy-january.png";
 import { useNavigate } from "react-router-dom";
 
 function AdvertisementSectionHome() {
@@ -28,7 +29,7 @@ function AdvertisementSectionHome() {
         <div className="w-full max-w-[600px] flex flex-col items-center">
           {true && (
             <img
-              src={winterPrograms}
+              src={januaryFlyer}
               className="object-cover w-full max-w-[600px] rounded-2xl overflow-hidden hover:scale-105 transition-all ease-out hover:shadow-2xl cursor-pointer"
               alt=""
               onClick={handleWinter}
@@ -37,22 +38,6 @@ function AdvertisementSectionHome() {
           <button
             className="p-2 border-2 border-black rounded-xl bg-neutral-300 hover:bg-neutral-400 w-full max-w-[350px] mt-4"
             onClick={() => navigate("/winter")}
-          >
-            Learn More
-          </button>
-        </div>
-        <div className="w-full max-w-[600px] flex flex-col items-center">
-          {true && (
-            <img
-              src={prodigyFlyer}
-              className="object-cover w-full max-w-[600px] rounded-2xl overflow-hidden hover:scale-105 transition-all ease-out hover:shadow-2xl cursor-pointer"
-              alt=""
-              onClick={handleProdigy}
-            />
-          )}
-          <button
-            className="p-2 border-2 border-black rounded-xl bg-neutral-300 hover:bg-neutral-400 w-full max-w-[350px] mt-4"
-            onClick={() => navigate("/prodigy")}
           >
             Learn More
           </button>
