@@ -5,10 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function AdvertisementSectionHome() {
   const handleWinter = () => {
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLScmafl-trO8VO01AFR6vZ2hqicHXjLdO4RcBdSaYlda5IXKAg/viewform",
-      "_blank"
-    );
+    window.open("https://forms.gle/bMCoTw2D89FfgseZ9", "_blank");
     return;
   };
 
@@ -25,8 +22,7 @@ function AdvertisementSectionHome() {
   return (
     <div className="w-full py-[6rem] md:py-[10rem] lg:py-[14rem] px-4 md:px-8 flex flex-col items-center">
       <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
-        Join us this{" "}
-        <span className="text-blue-500 italic">Winter 2024/25</span>{" "}
+        Join us this <span className="text-blue-500 italic">January 2025</span>{" "}
       </h2>
       <div className="w-full flex flex-wrap gap-8 items-center my-8 justify-center">
         <div className="w-full max-w-[600px] flex flex-col items-center">
