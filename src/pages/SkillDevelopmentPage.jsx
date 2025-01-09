@@ -8,6 +8,7 @@ import WinterProgramSection from "../components/main/WinterProgramSection";
 import HomeReviewSection from "../components/main/HomeReviewSection";
 import winterSquare from "../assets/winter-square.png";
 import winterMedium from "../assets/winter-medium.png";
+import SkillDevSection from "../components/main/SkillDevSection";
 
 function SkillDevelopmentPage() {
   return (
@@ -21,7 +22,7 @@ function SkillDevelopmentPage() {
           heroImgMedium={winterMedium}
           heroSquare={winterSquare}
         />
-        <SkillDevelopmentPage />
+        <SkillDevSection />
         <HomeReviewSection />
         <CtaSection />
       </main>
