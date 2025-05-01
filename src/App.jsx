@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import WinterPage from "./pages/WinterPage";
 import ProdigyPage from "./pages/ProdigyPage";
 import SkillDevelopmentPage from "./pages/SkillDevelopmentPage";
+import PreseasonPage from "./pages/PreseasonPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/winter" exact element={<SkillDevelopmentPage />} />
         <Route path="/prodigy" exact element={<ProdigyPage />} />
         <Route path="/skilldevelopment" element={<SkillDevelopmentPage />} />
+        <Route path="/preseason" element={<PreseasonPage />} />
       </Routes>
     </BrowserRouter>
   );
