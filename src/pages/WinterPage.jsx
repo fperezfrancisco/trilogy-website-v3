@@ -17,9 +17,9 @@ function WinterPage() {
         <HeroSectionRight
           mainTitle={"Stay ahead this"}
           specialTitleText={"Winter"}
-          heroImg={winterWide}
-          heroImgMedium={winterMedium}
-          heroSquare={winterSquare}
+          heroImg={"/winter2025-26/winter-wide.png"}
+          heroImgMedium={"/winter2025-26/winter-wide.png"}
+          heroSquare={"/winter2025-26/winter-square.png"}
         />
         <WinterProgramSection />
         <HomeReviewSection />

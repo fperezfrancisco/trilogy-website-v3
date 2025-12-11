@@ -6,7 +6,7 @@ function SkillDevSection() {
   const navigate = useNavigate();
 
   const handleRegistration = () => {
-    window.open("https://forms.gle/bMCoTw2D89FfgseZ9", "_blank");
+    window.open("https://forms.gle/VpZjdDEuQ82JMqvM6", "_blank");
     return;
   };
 
@@ -18,26 +18,74 @@ function SkillDevSection() {
       <div className="sectionCopy w-full max-w-[650px] flex flex-col items-center lg:items-start gap-8">
         <div className="flex flex-col items-center lg:items-start w-full">
           <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
-            Skill Development Training
+            Winter Training Programs
           </h2>
-          <p className="mt-4 text-[1rem] font-medium text-center lg:text-left">
-            January 13th, 15th, 22nd, & 27th
-          </p>
-          <p className=" text-[1rem] font-normal text-neutral-400 text-center lg:text-left">
-            Central Park Field #1
-          </p>
-          <p className=" text-[1rem] font-normal text-neutral-400 text-center lg:text-left">
-            Players born 2013 - 2010 | 4:30pm - 6pm
-          </p>
-          <p className=" text-[1rem] font-normal text-neutral-400 text-center lg:text-left">
-            Players born 2017 - 2014 | 6pm - 7:30pm
-          </p>
           <p className="mt-4 text-[1rem] font-normal text-center lg:text-left">
-            Introducing our Trilogy Skill Development Training for January,
-            designed specifically for club/elite players to continue their
-            preparation & development. This program is ideal for those looking
-            to get ahead of tournaments & try out season ahead. Limited to 20
-            players total.
+            Our Winter Training Programs are back for 2025/26! These programs
+            are designed specifically for players ages 6 - 12 to continue their
+            preparation & development. We offer 3 programs that are ideal for
+            those looking to get ahead of tournaments & try out season. Limited
+            spots & early bird discounts available!
+          </p>
+          <ul className="w-full flex flex-col gap-2 py-4 list-disc pl-4">
+            <li className="items-center list-item">
+              <div className="w-full flex flex-col items-start">
+                <p className=" text-xl font-medium text-center lg:text-left">
+                  Winter Skills Clinic
+                </p>
+
+                <div className="flex items-center gap-1">
+                  <p className=" text-[1rem] font-medium text-center lg:text-left text-neutral-800">
+                    Dec 29 - 30 | 8am - 10am |
+                  </p>
+                  <p className=" text-base text-blue-500 font-medium text-center lg:text-left">
+                    Single Day $35 / Both Days $60
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li className="items-center list-item">
+              <div className="w-full flex flex-col items-start">
+                <p className=" text-xl font-medium text-center lg:text-left">
+                  Preseason Program
+                </p>
+
+                <div className="flex items-center gap-1">
+                  <p className=" text-[1rem] font-medium text-center lg:text-left text-neutral-800">
+                    Jan 5 - Jan 9 | 8am - 10am |
+                  </p>
+                  <p className=" text-base text-blue-500 font-medium text-center lg:text-left">
+                    Early Bird $170 / Regular $200
+                  </p>
+                </div>
+                <p className=" text-sm font-medium text-center lg:text-left text-neutral-400">
+                  * Early Bird Ends Dec 29, 2025 *
+                </p>
+              </div>
+            </li>
+            <li className="items-center list-item">
+              <div className="w-full flex flex-col items-start">
+                <p className=" text-xl font-medium text-center lg:text-left">
+                  MLK Day Clinic
+                </p>
+
+                <div className="flex items-center gap-1">
+                  <p className=" text-[1rem] font-medium text-center lg:text-left text-neutral-800">
+                    Jan 19, 2026 | 8am - 10am |
+                  </p>
+                  <p className=" text-base text-blue-500 font-medium text-center lg:text-left">
+                    $35 per Player
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <p className=" text-[1rem] font-normal text-neutral-800 text-center lg:text-left">
+            Field TBD in Santa Clarita, CA
+          </p>
+          <p className=" text-[1rem] font-normal text-neutral-800 text-center lg:text-left">
+            Players ages 6 - 12
           </p>
         </div>
 

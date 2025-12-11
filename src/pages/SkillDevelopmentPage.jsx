@@ -16,11 +16,11 @@ function SkillDevelopmentPage() {
       <Header />
       <main className="w-full max-w-[2400px] mx-auto mt-[56px] my-0 flex flex-col">
         <HeroSectionRight
-          mainTitle={"Sharpen Your "}
-          specialTitleText={"Skill"}
-          heroImg={winterWide}
-          heroImgMedium={winterMedium}
-          heroSquare={winterSquare}
+          mainTitle={"Stay Ahead this"}
+          specialTitleText={"Winter"}
+          heroImg={"/winter2025-26/winter-programs-26.png"}
+          heroImgMedium={"/winter2025-26/winter-programs-26.png"}
+          heroSquare={"/winter2025-26/winter-programs-26.png"}
         />
         <SkillDevSection />
         <HomeReviewSection />
