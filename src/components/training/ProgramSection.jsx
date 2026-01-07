@@ -23,19 +23,47 @@ function ProgramSection() {
   const programList = [
     {
       id: 1,
-      title: "Open Group Training",
+      title: "Prodigy Program",
       description:
-        "Weekly group session to continue developing your skills & technique. Must register through our website to ensure spot as group size is limited. Location will be disclosed via email & text upon registering.",
+        "6-week skill development program focused on building strong fundamentals in youth soccer athletes. Great for recreational players ages 5 - 8 looking to get started on their soccer journey or further their growth. No prior experience necessary.",
       bullets: [
-        "Open to players ages 7+",
-        "$35 per session (we do offer packs for more savings)",
-        "Limited to 10 spots per group session",
+        "Open to players ages 5-8",
+        "$135 for the full 6-week program or $25 per drop-in session",
+        "Mondays and Fridays 4pm - 5pm",
+        "First program starts Jan 19th, 2026",
+        "Limited to 20 spots per group session",
       ],
       imgMain: openGroupImg,
       primaryBtn: {
         title: "Register Now",
         type: "secondary",
-        action: () => openInNewTab("https://trilogytoei.setmore.com/#classes"),
+        action: () => openInNewTab("https://forms.gle/h9qHvqvkd2pd8TZ47"),
+      },
+      secondaryBtn: {
+        title: "Learn More",
+        action: () => openInNewTab("/prodigy"),
+        type: "other",
+      },
+    },
+    {
+      id: 2,
+      title: "Skill Development",
+      description:
+        "The best way to keep your skills sharp consistently & see long-term improvement. Our skill development program offers players structured, regular training that sharpens technical skill mastery, speed & conditoining, and tactical application week after week.",
+      bullets: [
+        "Small Group training sessions - Limited spots available.",
+        "Perfect for club/competitive players ages 8 - 14",
+        "Weekly sessions available - Monday - Thursday evenings",
+        "90 minute sessions - covering technical, physical, and tactical development",
+      ],
+      imgMain: privateImg,
+      primaryBtn: {
+        title: "Register Now",
+        type: "secondary",
+        action: () =>
+          openInNewTab(
+            "https://docs.google.com/forms/d/e/1FAIpQLSckSWoPR8wbdfO5V8wSpVr0hFU9qTfqUcA-ExQXG1hX6rQHjQ/viewform"
+          ),
       },
       secondaryBtn: {
         title: "Learn More",
@@ -43,41 +71,20 @@ function ProgramSection() {
       },
     },
     {
-      id: 2,
-      title: "Private Mentorship Program",
-      description:
-        "More in depth training with 1-1 coaching & cultivated sessions for more rapid improvement. Must apply & only few are selected. Must be 11+ to be considered.",
-      bullets: [
-        "3 month minimum commitment",
-        "3, 4, or 8 sessions per month packs",
-        "Personal Plan & Monthly check-ins",
-        "Waiting list available",
-      ],
-      imgMain: privateImg,
-      primaryBtn: {
-        title: "Apply Now",
-        type: "secondary",
-        action: () =>
-          openInNewTab(
-            "https://docs.google.com/forms/d/e/1FAIpQLSckSWoPR8wbdfO5V8wSpVr0hFU9qTfqUcA-ExQXG1hX6rQHjQ/viewform"
-          ),
-      },
-    },
-    {
       id: 3,
-      title: "Small Privates",
+      title: "Private Training",
       description:
-        "The perks of private training but with the ability to share the costs with friends or teammates. We offer the ability to train in small groups ranging from 2-8 players. Price varies per group size.",
+        "One-on-one training sessions tailored to the individual needs of each player or private small groups ranging between 2 - 8 players. Focus on specific areas of improvement, receive personalized feedback, and accelerate your development with dedicated attention from our experienced coaches.",
       bullets: [
-        "Price per numbers of players in session",
-        "Closed groups",
-        "Price is total per session",
+        "Limited availability & priority to players committed to long-term plans",
+        "4, 8, and 12 sessions plans available.",
+        "Must contact us to schedule your first evaluation session.",
       ],
-      imgMain: smallGroup,
+      imgMain: "/private.JPG",
       primaryBtn: {
-        title: "Book Now",
+        title: "Contact Us",
         type: "secondary",
-        action: () => openInNewTab("https://trilogytoei.setmore.com/book"),
+        action: () => openInNewTab("/contact"),
       },
     },
   ];

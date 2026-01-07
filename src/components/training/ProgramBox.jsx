@@ -40,7 +40,10 @@ function ProgramBox({ program }) {
             />
           )}
           {program.secondaryBtn && (
-            <Button title={program.secondaryBtn.title} />
+            <Button
+              title={program.secondaryBtn.title}
+              action={program.secondaryBtn.action}
+            />
           )}
         </div>
       </div>

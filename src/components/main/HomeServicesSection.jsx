@@ -9,13 +9,13 @@ function HomeServicesSection() {
     window.open(path, "_blank");
   };
   return (
-    <div className="w-full py-[6rem] md:py-[10rem] lg:py-[14rem] px-4 md:px-8 flex flex-col items-center gap-10">
+    <div className="w-full py-[6rem] md:py-[6rem] lg:py-[8rem] px-4 md:px-8 flex flex-col items-center gap-10">
       <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
         our services
       </h2>
-      <div className="w-full flex flex-wrap justify-center gap-12">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 justify-center gap-4 md:gap-8 max-w-[1200px] mx-auto">
         <ServicesBoxSquare
-          title="Open Group Training"
+          title="Progidy Program"
           buttonTitle={"Register now"}
           img={openGroupImg}
           imgLink={"/training#program1"}
@@ -24,7 +24,7 @@ function HomeServicesSection() {
           }
         />
         <ServicesBoxSquare
-          title="Private Mentorship"
+          title="Skill Development"
           buttonTitle={"Apply now"}
           imgLink={"/training#program2"}
           img={privateImg}
@@ -34,10 +34,11 @@ function HomeServicesSection() {
             )
           }
         />
+
         <ServicesBoxSquare
-          title="Small Privates"
+          title="Private Training"
           buttonTitle={"Book now"}
-          img={smallGroupImg}
+          img={"/private.JPG"}
           imgLink={"/training#program3"}
           action={() => openInNewTab("https://trilogytoei.setmore.com/book")}
         />

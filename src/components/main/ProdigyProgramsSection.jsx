@@ -6,10 +6,7 @@ function ProdigyProgramsSection() {
   const navigate = useNavigate();
 
   const handleRegistration = () => {
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSfPEV7poqRIA4fvRL9qiJnrv-F6aY1g-F_2dHGoGzPID1IFxA/viewform",
-      "_blank"
-    );
+    window.open("https://forms.gle/4sRmjUWQ7yxaN6b66", "_blank");
     return;
   };
   return (
@@ -22,10 +19,10 @@ function ProdigyProgramsSection() {
       <div className="sectionCopy w-full max-w-[650px] flex flex-col items-center lg:items-start gap-8">
         <div className="flex flex-col items-center lg:items-start w-full">
           <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
-            Prodigy Clinics
+            6-week Prodigy Program
           </h2>
           <p className="mt-4 text-[1rem] font-medium text-center lg:text-left">
-            Dec 23rd & Dec 30th | 10am - 12pm
+            Starting January 19th - March 1st | Monday & Fridays | 4pm - 5pm
           </p>
           <p className=" text-[1rem] font-normal text-neutral-400 text-center lg:text-left">
             Duane R Harte Park, SCV, CA
@@ -40,7 +37,7 @@ function ProdigyProgramsSection() {
             skills in small sided games. Limited to 20 players total.
           </p>
           <p className="mt-4 text-[1rem] font-normal text-center lg:text-left">
-            2 hour trainings focused on speed, agility, & quickness as well as
+            1 hour trainings focused on speed, agility, & quickness as well as
             technical foundations - ball mastery, passing, receiving, &
             shooting. All applied in a fun, safe game-like environment.
           </p>

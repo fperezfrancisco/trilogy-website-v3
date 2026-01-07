@@ -11,7 +11,7 @@ function HomeAboutSection() {
   };
 
   return (
-    <div className="w-full py-[6rem] md:py-[10rem] lg:py-[14rem] px-4 md:px-8 flex flex-col items-center lg:flex-row-reverse lg:items-start justify-center gap-12">
+    <div className="w-full py-[6rem] md:py-[6rem] lg:py-[8rem] px-4 md:px-8 flex flex-col items-center lg:flex-row-reverse lg:items-start justify-center gap-12">
       <div className="aspect-[4/5] flex w-full max-w-[450px] bg-neutral-400 rounded-2xl overflow-hidden">
         {true && <img src={jackImg} className="object-cover w-full" alt="" />}
       </div>
@@ -20,7 +20,7 @@ function HomeAboutSection() {
           soccer training with a purpose.
         </h2>
         <p className="my-3 text-[1rem] font-normal text-center lg:text-left text-neutral-500">
-          We're more than just a soccer program—we're a passionate community
+          We're more than just a soccer program — we're a passionate community
           committed to unlocking the potential of individual athletes. With a
           team of certified and experienced coaches, all of whom have extensive
           playing and coaching backgrounds, we provide personalized training to
