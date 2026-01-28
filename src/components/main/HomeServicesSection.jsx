@@ -13,7 +13,7 @@ function HomeServicesSection() {
       <h2 className="sectionTitle text-[1.75rem] text-center lg:text-left md:text-[2.25rem] lg:text-[2.75rem] font-semibold text-[#1e1e1e] capitalize mb-0 leading-none">
         our services
       </h2>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 justify-center gap-4 md:gap-8 max-w-[1200px] mx-auto">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center gap-4 max-w-[1200px] mx-auto">
         <ServicesBoxSquare
           title="Progidy Program"
           buttonTitle={"Register now"}
@@ -24,10 +24,10 @@ function HomeServicesSection() {
           }
         />
         <ServicesBoxSquare
-          title="Skill Development"
-          buttonTitle={"Apply now"}
+          title="Open Group Sessions"
+          buttonTitle={"Book now"}
           imgLink={"/training#program2"}
-          img={privateImg}
+          img={"/colton-group.JPG"}
           action={() =>
             openInNewTab(
               "https://docs.google.com/forms/d/e/1FAIpQLSckSWoPR8wbdfO5V8wSpVr0hFU9qTfqUcA-ExQXG1hX6rQHjQ/viewform"
@@ -36,10 +36,17 @@ function HomeServicesSection() {
         />
 
         <ServicesBoxSquare
-          title="Private Training"
+          title="Elite Pods"
           buttonTitle={"Book now"}
-          img={"/private.JPG"}
+          img={"/pods-1.JPG"}
           imgLink={"/training#program3"}
+          action={() => openInNewTab("https://trilogytoei.setmore.com/book")}
+        />
+        <ServicesBoxSquare
+          title="Elite Mentorship"
+          buttonTitle={"Book now"}
+          img={"/private-1.JPG"}
+          imgLink={"/training#program4"}
           action={() => openInNewTab("https://trilogytoei.setmore.com/book")}
         />
       </div>

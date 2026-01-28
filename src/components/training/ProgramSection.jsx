@@ -29,7 +29,7 @@ function ProgramSection() {
       bullets: [
         "Open to players ages 5-8",
         "$135 for the full 6-week program or $25 per drop-in session",
-        "Mondays and Fridays 4pm - 5pm",
+        "Fridays 4pm - 5pm",
         "First program starts Jan 19th, 2026",
         "Limited to 20 spots per group session",
       ],
@@ -47,44 +47,73 @@ function ProgramSection() {
     },
     {
       id: 2,
-      title: "Skill Development",
+      title: "Open Group Training",
       description:
-        "The best way to keep your skills sharp consistently & see long-term improvement. Our skill development program offers players structured, regular training that sharpens technical skill mastery, speed & conditoining, and tactical application week after week.",
+        "Weekly small group training sessions focused on technical & tactical topics for competitive players looking to stay sharp without breaking the bank. Book in advanced or purchase a bundle for better savings.",
       bullets: [
-        "Small Group training sessions - Limited spots available.",
-        "Perfect for club/competitive players ages 8 - 14",
-        "Weekly sessions available - Monday - Thursday evenings",
-        "90 minute sessions - covering technical, physical, and tactical development",
+        "60 minute training sessions available weekly.",
+        "Intermediate/Club players ages 7 - 14. Limited spots available.",
+        "Rotating technical and tactical themes each week.",
+        "$35 per session or save with multi-session bundles.",
       ],
-      imgMain: privateImg,
+      imgMain: "/colton-group.JPG",
       primaryBtn: {
         title: "Register Now",
         type: "secondary",
-        action: () =>
-          openInNewTab(
-            "https://docs.google.com/forms/d/e/1FAIpQLSckSWoPR8wbdfO5V8wSpVr0hFU9qTfqUcA-ExQXG1hX6rQHjQ/viewform"
-          ),
+        action: () => openInNewTab("https://trilogysoccer.setmore.com/book"),
       },
       secondaryBtn: {
         title: "Learn More",
         type: "other",
+        action: () => openInNewTab("/opengroups"),
       },
     },
     {
       id: 3,
-      title: "Private Training",
+      title: "Elite Pods",
       description:
-        "One-on-one training sessions tailored to the individual needs of each player or private small groups ranging between 2 - 8 players. Focus on specific areas of improvement, receive personalized feedback, and accelerate your development with dedicated attention from our experienced coaches.",
+        "Brand new program that combines the benefits of personalized coaching with the energy and motivation of small group training. Elite Pods are perfect for players looking for focused development in a consitent and effective way. Limited Spots. Must apply and be accepted to join.",
       bullets: [
-        "Limited availability & priority to players committed to long-term plans",
-        "4, 8, and 12 sessions plans available.",
-        "Must contact us to schedule your first evaluation session.",
+        "Weekly 75 minute training session with a 1-5 group.",
+        "Pods consistent of players of similar, age, and commitment level.",
+        "Schedule fixed monthly but can be adjusted depending on pod availability.",
+        "Personalized feedback and development plans provided.",
+        "Must apply and be accepted to join.",
+      ],
+      imgMain: "/mentorship.JPG",
+      primaryBtn: {
+        title: "Apply Now",
+        type: "primary",
+        action: () => openInNewTab("/eliteapplication"),
+      },
+      secondaryBtn: {
+        title: "Learn More",
+        type: "other",
+        action: () => openInNewTab("/elitepods"),
+      },
+    },
+    {
+      id: 4,
+      title: "Elite 1-1 Mentorship",
+      description:
+        "Private training enhanced & curated for highly committed players seeking to maximize their potential. Our Elite 1-1 Mentorship program offers personalized coaching, tailored development plans, and comprehensive support to help players reach their highest level. Must apply and be accepted to join. Monthly, quarterly, and annual plans only.",
+      bullets: [
+        "Weekly 60 minute private training session.",
+        "Schedule fixed monthly but can be adjusted depending on pod availability.",
+        "Personalized player plan and monthly tactical reviews.",
+        "Must apply and be accepted to join.",
+        "Players ages 10+ that are highly committed",
       ],
       imgMain: "/private.JPG",
       primaryBtn: {
-        title: "Contact Us",
-        type: "secondary",
-        action: () => openInNewTab("/contact"),
+        title: "Apply Now",
+        type: "primary",
+        action: () => openInNewTab("/eliteapplication"),
+      },
+      secondaryBtn: {
+        title: "Learn More",
+        type: "other",
+        action: () => openInNewTab("/elitementorship"),
       },
     },
   ];

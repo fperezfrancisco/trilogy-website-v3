@@ -19,7 +19,7 @@ function Header() {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 right-0 z-10 bg-white h-[56px] px-4 md:px-8 max-w-[2400px] my-0 mx-auto flex items-center justify-between">
+    <header className="w-full fixed top-0 left-0 right-0 z-[100] bg-white h-[56px] px-4 md:px-8 max-w-[2400px] my-0 mx-auto flex items-center justify-between">
       <span className="h-full flex items-center">
         <Link to="/">
           <img

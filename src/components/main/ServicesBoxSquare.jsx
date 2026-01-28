@@ -1,11 +1,12 @@
+import { ArrowRight } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function ServicesBoxSquare({ title, img, isNew, isPopular, imgLink }) {
   return (
-    <div className="w-full max-w-[600px] flex flex-col items-start">
+    <div className="w-full max-w-[600px] flex flex-col gap-2 items-start">
       <Link to={imgLink} className="w-full">
-        <div className="rounded-2xl aspect-[3/4] w-full overflow-hidden bg-neutral-200 cursor-pointer relative group">
+        <div className="rounded-2xl aspect-square w-full overflow-hidden bg-neutral-200 cursor-pointer relative group">
           {img && (
             <img
               src={img}
@@ -13,11 +14,14 @@ function ServicesBoxSquare({ title, img, isNew, isPopular, imgLink }) {
               alt={title}
             />
           )}
-          <div className="absolute inset-0 bg-black/40 hover:bg-black/20 flex items-end justify-center text-center p-6">
-            <h3 className="font-semibold italic tracking-wider text-2xl md:text-lg text-white">
-              {title}
-            </h3>
-          </div>
+        </div>
+      </Link>
+      <Link to={imgLink} className="w-full">
+        <div className="px-4 py-2 rounded-xl bg-blue-500 w-full flex items-center justify-between">
+          <h3 className="font-semibold italic tracking-wider text-lg sm:text-sm xl:text-lg text-white">
+            {title}
+          </h3>
+          <ArrowRight className="text-white" />
         </div>
       </Link>
     </div>

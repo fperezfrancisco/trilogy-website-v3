@@ -5,3 +5,13 @@
 * {
   box-sizing: border-box;
 }
+
+#ctaGradient {
+  background: linear-gradient(
+    to right,
+    #155dfc,
+    #155dfc,
+    #155dfc66 70%,
+    #155dfc00 100%
+  );
+}

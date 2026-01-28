@@ -10,6 +10,11 @@ import WinterPage from "./pages/WinterPage";
 import ProdigyPage from "./pages/ProdigyPage";
 import SkillDevelopmentPage from "./pages/SkillDevelopmentPage";
 import PreseasonPage from "./pages/PreseasonPage";
+import EliteMentorshipPage from "./pages/programs/EliteMentorshipPage";
+import MentorshipApplicationForm from "./pages/programs/MentorshipApplicationForm";
+import ElitePodsPage from "./pages/programs/ElitePodsPage";
+import OpenGroupsPage from "./pages/programs/OpenGroupsPage";
+import GetHelpPage from "./pages/GetHelpPage";
 
 function App() {
   return (
@@ -24,6 +29,15 @@ function App() {
         <Route path="/prodigy" exact element={<ProdigyPage />} />
         <Route path="/skilldevelopment" element={<SkillDevelopmentPage />} />
         <Route path="/preseason" element={<PreseasonPage />} />
+        <Route path="/elitementorship" element={<EliteMentorshipPage />} />
+        <Route
+          path="/eliteapplication"
+          element={<MentorshipApplicationForm />}
+        />
+        <Route path="/elitepods" element={<ElitePodsPage />} />
+        <Route path="/opengroups" element={<OpenGroupsPage />} />
+        <Route path="/gethelp" element={<GetHelpPage />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
