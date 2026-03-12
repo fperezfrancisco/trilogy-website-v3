@@ -39,6 +39,7 @@ function App() {
         <Route path="/opengroups" element={<OpenGroupsPage />} />
         <Route path="/gethelp" element={<GetHelpPage />} />
         <Route path="/springbreak" element={<SpringBreakPage />} />
+        <Route path="/springcamp" element={<SpringBreakPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
