@@ -15,6 +15,7 @@ import MentorshipApplicationForm from "./pages/programs/MentorshipApplicationFor
 import ElitePodsPage from "./pages/programs/ElitePodsPage";
 import OpenGroupsPage from "./pages/programs/OpenGroupsPage";
 import GetHelpPage from "./pages/GetHelpPage";
+import SpringBreakPage from "./pages/SpringBreakPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/elitepods" element={<ElitePodsPage />} />
         <Route path="/opengroups" element={<OpenGroupsPage />} />
         <Route path="/gethelp" element={<GetHelpPage />} />
+        <Route path="/springbreak" element={<SpringBreakPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
