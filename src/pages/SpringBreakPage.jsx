@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/nav/Header";
 import HeroSectionRight from "../components/main/HeroSectionRight";
 import SpringBreakSection from "../components/main/SpringBreakSection";
+import OldersSpringBreakSection from "../components/main/OldersSpringBreakSection";
 import HomeReviewSection from "../components/main/HomeReviewSection";
 import CtaSection from "../components/cta/CtaSection";
 import Footer from "../components/footer/Footer";
@@ -18,6 +19,7 @@ const SpringBreakPage = () => {
         />
 
         <SpringBreakSection flyerSrc={"/spring-26.png"} />
+        <OldersSpringBreakSection flyerSrc={"/olders-camp.png"} />
 
         <HomeReviewSection />
         <CtaSection />
