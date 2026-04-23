@@ -1,6 +1,6 @@
-import React from "react";
 import Header from "../components/nav/Header";
 import HeroSectionMain from "../components/main/HeroSectionMain";
+import SummerPromoSection from "../components/main/SummerPromoSection";
 import HomeReviewSection from "../components/main/HomeReviewSection";
 import HomeAboutSection from "../components/main/HomeAboutSection";
 import Footer from "../components/footer/Footer";
@@ -14,6 +14,7 @@ function Home() {
       <Header />
       <main className="w-full max-w-[2400px] mx-auto mt-[56px] my-0 flex flex-col">
         <HeroSectionMain />
+        <SummerPromoSection />
         {/**
          * <AdvertisementSectionHome />
          *

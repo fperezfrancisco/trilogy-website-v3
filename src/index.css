@@ -15,3 +15,57 @@
     #155dfc00 100%
   );
 }
+
+@keyframes summerPromoRise {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes summerPromoPan {
+  from {
+    transform: translateX(-14px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.summerPromoReveal {
+  will-change: transform;
+}
+
+.summerPromoArt {
+  will-change: transform;
+}
+
+.summerPromoHidden .summerPromoReveal {
+  transform: translateY(18px);
+}
+
+.summerPromoHidden .summerPromoArt {
+  transform: translateX(-14px);
+}
+
+.summerPromoVisible .summerPromoReveal {
+  animation: summerPromoRise 500ms ease-out both;
+}
+
+.summerPromoVisible .summerPromoArt {
+  animation: summerPromoPan 650ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summerPromoHidden .summerPromoReveal,
+  .summerPromoHidden .summerPromoArt {
+    transform: none;
+  }
+
+  .summerPromoVisible .summerPromoReveal,
+  .summerPromoVisible .summerPromoArt {
+    animation: none;
+  }
+}
