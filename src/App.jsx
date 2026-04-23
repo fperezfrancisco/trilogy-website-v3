@@ -6,7 +6,6 @@ import ContactPage from "./pages/ContactPage";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import ScrollToTop from "./components/ScrollToTop";
-import WinterPage from "./pages/WinterPage";
 import ProdigyPage from "./pages/ProdigyPage";
 import SkillDevelopmentPage from "./pages/SkillDevelopmentPage";
 import PreseasonPage from "./pages/PreseasonPage";
@@ -16,6 +15,7 @@ import ElitePodsPage from "./pages/programs/ElitePodsPage";
 import OpenGroupsPage from "./pages/programs/OpenGroupsPage";
 import GetHelpPage from "./pages/GetHelpPage";
 import SpringBreakPage from "./pages/SpringBreakPage";
+import SummerPage from "./pages/SummerPage";
 
 function App() {
   return (
@@ -40,6 +40,7 @@ function App() {
         <Route path="/gethelp" element={<GetHelpPage />} />
         <Route path="/springbreak" element={<SpringBreakPage />} />
         <Route path="/springcamp" element={<SpringBreakPage />} />
+        <Route path="/summer" element={<SummerPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
