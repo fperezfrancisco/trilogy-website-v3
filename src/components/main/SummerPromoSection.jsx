@@ -67,7 +67,7 @@ function SummerPromoSection() {
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                to="/summer"
+                to="/camps"
                 className="inline-flex items-center justify-center rounded-xl bg-[#1e1e1e] px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-black transition-colors duration-200"
               >
                 Learn More
