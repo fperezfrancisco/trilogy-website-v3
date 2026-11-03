@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer";
 import HomeReviewSection from "../components/main/HomeReviewSection";
 import SummerProgramsSection from "../components/main/SummerProgramsSection";
 
-const SUMMER_REGISTER_URL = "https://forms.gle/dJWKh3fRhyr3zriS7";
+const SUMMER_REGISTER_URL = "https://forms.gle/Phx6KNRNpcF6koqP9";
 
 function SummerPage() {
   return (
@@ -21,20 +21,21 @@ function SummerPage() {
 
             <div className="hidden min-[900px]:block absolute w-full min-[900px]:max-w-[520px] min-[1200px]:max-w-[700px] right-0 bottom-0 rounded-tl-2xl bg-white p-6 md:p-8 lg:p-10">
               <p className="hidden min-[900px]:block min-[1400px]:hidden uppercase text-blue-500 font-extrabold text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-none tracking-[0.04em]">
-                SUMMER 2026
+                Trilogy Soccer Camps
               </p>
 
               <div className="hidden min-[1400px]:block">
                 <p className="uppercase tracking-[0.2em] text-xs md:text-sm text-blue-500 font-semibold">
-                  Summer 2026
+                  Winter 2026
                 </p>
                 <h1 className="text-[#1e1e1e] text-[1.8rem] sm:text-[2.1rem] md:text-[2.6rem] lg:text-[3rem] leading-[0.98] font-semibold mt-2">
-                  Trilogy Summer Camps & Programs
+                  Trilogy Camps & Programs
                 </h1>
                 <p className="mt-4 text-neutral-600 text-[0.95rem] md:text-[1rem] leading-7 max-w-[620px]">
-                  Preseason weeks, positional training, and technical camps to
-                  keep players developing all summer. Register early to lock in
-                  your tier pricing and reserve your spot.
+                  Thanksgiving Camp and 2 Weeks of Winter Skills Camps to keep
+                  players developing throughout the winter months. Register
+                  early to lock in your early-bird pricing and reserve your
+                  spot.
                 </p>
               </div>
 
@@ -59,15 +60,15 @@ function SummerPage() {
 
           <div className="min-[900px]:hidden w-full rounded-b-2xl bg-white p-6">
             <p className="uppercase tracking-[0.2em] text-xs text-blue-500 font-semibold">
-              Summer 2026
+              Winter 2026
             </p>
             <h1 className="text-[#1e1e1e] text-[1.8rem] sm:text-[2.1rem] leading-[0.98] font-semibold mt-2">
-              Trilogy Summer Camps & Programs
+              Trilogy Camps & Programs
             </h1>
             <p className="mt-4 text-neutral-600 text-[0.95rem] leading-7 max-w-[620px]">
-              Preseason weeks, positional training, and technical camps to keep
-              players developing all summer. Register early to lock in your tier
-              pricing and reserve your spot.
+              Thanksgiving Camp and 2 Weeks of Winter Skills Camps to keep
+              players developing throughout the winter months. Register early to
+              lock in your early-bird pricing and reserve your spot.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -98,11 +99,11 @@ function SummerPage() {
               Ready To Join?
             </p>
             <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.6rem] font-semibold leading-tight mt-2">
-              Register for Summer Camps or get help choosing the right program.
+              Register for our Camps or get help choosing the right program.
             </h2>
             <p className="text-white/90 mt-4 max-w-[760px] leading-7">
               We can help you find the best fit based on age, current level, and
-              goals for the season. Reach out to our team or secure your summer
+              goals for the season. Reach out to our team or secure your camp
               spot now.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const SUMMER_PROGRAMS = [
+/*const SUMMER_PROGRAMS = [
   {
     date: "June 15 - June 19",
     title: "Preseason Program Week 1",
@@ -34,13 +34,32 @@ const SUMMER_PROGRAMS = [
     details:
       "Technical ball mastery, confidence, and key fundamentals before fall season.",
   },
+];*/
+
+const WINTER_PROGRAMS = [
+  {
+    date: "November 23 - 25, 2026",
+    title: "Thanksgiving Camp",
+    details: "Ages 6-15 @ 8:00am - 10:00am",
+  },
+  {
+    date: "December 21 - December 23, 2026",
+    title: "Winter Skills Camp Week 1",
+    details: "Ages 6-12 @ 8:00am - 10:00am",
+  },
+  {
+    date: "December 28 - December 30, 2026",
+    title: "Winter Skills Camp Week 2",
+    details: "Ages 6-12 @ 8:00am - 10:00am",
+  },
 ];
 
+/*
 const PRICING_NOTES = [
   "Tier 1 purchase before 5/4/2026",
   "Tier 2 purchase before 6/1/2026",
   "Tier 3 purchase on and after 6/1/2026",
-];
+];*/
 
 function SummerProgramsSection({ registerUrl }) {
   return (
@@ -52,17 +71,17 @@ function SummerProgramsSection({ registerUrl }) {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           <div className="rounded-2xl bg-white border border-neutral-200 shadow-sm p-6 md:p-8">
             <p className="text-sm uppercase tracking-[0.18em] text-blue-600 font-semibold mb-3">
-              Summer 2026 Programs
+              Winter 2026 Programs
             </p>
             <h2 className="text-[1.8rem] md:text-[2.3rem] font-semibold leading-tight text-[#1e1e1e]">
-              Build confidence, sharpen technique, and get game-ready all summer
+              Build confidence, sharpen technique, and get game-ready all winter
               long.
             </h2>
             <p className="text-neutral-600 mt-4 leading-7">
-              Our full summer lineup includes a 4-week preseason program plus
-              focused specialty camps. Sessions are designed to challenge
-              players with structured technical reps, game scenarios, and high
-              quality coaching in a supportive environment.
+              Our full winter lineup includes a Thanksgiving camp and 2 weeks of
+              winter skills camps. Sessions are designed to challenge players
+              with structured technical reps, game scenarios, and high quality
+              coaching in a supportive environment.
             </p>
 
             <ul className="mt-6 flex flex-col gap-3 text-neutral-700">
@@ -71,12 +90,11 @@ function SummerProgramsSection({ registerUrl }) {
                 Santa Clarita, CA
               </li>
               <li>
-                <span className="font-semibold text-[#1e1e1e]">Ages:</span> 6-12
-                and 13+
+                <span className="font-semibold text-[#1e1e1e]">Ages:</span> 6-15
               </li>
               <li>
                 <span className="font-semibold text-[#1e1e1e]">Season:</span>{" "}
-                June - August 2026
+                November 2026 - December 2026
               </li>
             </ul>
 
@@ -87,7 +105,7 @@ function SummerProgramsSection({ registerUrl }) {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-xl bg-blue-500 text-white px-6 py-3 font-semibold hover:bg-blue-400 transition-colors duration-200"
               >
-                Register For Summer
+                Register For Winter
               </a>
               <Link
                 to="/contact"
@@ -100,10 +118,10 @@ function SummerProgramsSection({ registerUrl }) {
 
           <div className="rounded-2xl bg-[#111827] text-white p-6 md:p-8">
             <h3 className="text-[1.35rem] md:text-[1.6rem] font-semibold mb-5">
-              Summer Schedule
+              Winter Schedule
             </h3>
             <div className="flex flex-col gap-5">
-              {SUMMER_PROGRAMS.map((program) => (
+              {WINTER_PROGRAMS.map((program) => (
                 <div
                   key={program.title}
                   className="border-b border-white/15 pb-4"
@@ -121,7 +139,8 @@ function SummerProgramsSection({ registerUrl }) {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-white border border-neutral-200 shadow-sm p-6 md:p-8">
+        {/**
+                 *  <div className="rounded-2xl bg-white border border-neutral-200 shadow-sm p-6 md:p-8">
           <h3 className="text-[1.45rem] md:text-[1.9rem] text-[#1e1e1e] font-semibold">
             Pricing Tiers And Bundles
           </h3>
@@ -141,13 +160,29 @@ function SummerProgramsSection({ registerUrl }) {
             ))}
           </div>
         </div>
+                 */}
 
         <div className="w-full">
           <h3 className="text-[1.45rem] md:text-[1.9rem] text-[#1e1e1e] font-semibold mb-5">
-            Summer 2026 Flyers
+            Winter 2026 Flyers
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((flyerNumber) => (
+            <a
+              key={1}
+              href={`/camps/thanksgiving-graphic.png`}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200 shadow-sm hover:shadow-md transition-shadow duration-200"
+            >
+              <img
+                src={`/camps/thanksgiving-graphic.png`}
+                alt={`Thanksgiving 2026 flyer`}
+                className="w-full h-full object-cover"
+              />
+            </a>
+            {/**
+               * 
+               * {[1, 2, 3, 4, 5, 6].map((flyerNumber) => (
               <a
                 key={flyerNumber}
                 href={`/summer/${flyerNumber}.png`}
@@ -162,6 +197,7 @@ function SummerProgramsSection({ registerUrl }) {
                 />
               </a>
             ))}
+               */}
           </div>
         </div>
       </div>

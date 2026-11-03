@@ -40,7 +40,7 @@ function App() {
         <Route path="/gethelp" element={<GetHelpPage />} />
         <Route path="/springbreak" element={<SpringBreakPage />} />
         <Route path="/springcamp" element={<SpringBreakPage />} />
-        <Route path="/summer" element={<SummerPage />} />
+        <Route path="/camps" element={<SummerPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
